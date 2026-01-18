@@ -1,4 +1,3 @@
-import React from 'react';
 import Image from 'next/image';
 import { MdLocationOn, MdWifi, MdLightbulb } from 'react-icons/md';
 import { FaHandshake } from 'react-icons/fa';
@@ -8,35 +7,35 @@ const features = [
         icon: MdLocationOn,
         title: 'Prime Location:',
         description:
-            'Located in Unichira, Edapally, WAGMI offers unmatched convenience with easy access to Kochi’s bustling areas like Thrikkakara, Kakkanad, and Edapally. You’ll enjoy proximity to major transportation, dining, and entertainment, always staying connected to everything you need.',
+            `Located in Unichira, Edapally, WAGMI offers unmatched convenience with easy access to Kochi's bustling areas like Thrikkakara, Kakkanad, and Edapally. You'll enjoy proximity to major transportation, dining, and entertainment, always staying connected to everything you need.`,
     },
     {
         icon: MdLightbulb,
         title: 'Flexible Solutions:',
         description:
-            'We understand that every business has unique needs. That’s why we offer a variety of flexible membership options like hot desks, dedicated desks, private cabins, and virtual offices. Our solutions are designed to grow and adapt as your business evolves, giving you room to scale easily.',
+            `We understand that every business has unique needs. That's why we offer a variety of flexible membership options like hot desks, dedicated desks, private cabins, and virtual offices. Our solutions are designed to grow and adapt as your business evolves, giving you room to scale easily.`,
     },
     {
         icon: MdWifi,
         title: 'Modern Facilities:',
         description:
-            'Our spaces are equipped with the latest technology and features to support your business needs. Enjoy high-speed internet, well-designed workspaces, a cozy cafeteria, and relaxing lounge areas—all tailored to keep you productive, focused, and comfortable throughout your day.',
+            `Our spaces are equipped with the latest technology and features to support your business needs. Enjoy high-speed internet, well-designed workspaces, a cozy cafeteria, and relaxing lounge areas—all tailored to keep you productive, focused, and comfortable throughout your day.`,
     },
     {
         icon: FaHandshake,
         title: 'Exceptional Support:',
         description:
-            'Our dedicated team is always on hand to ensure your experience at WAGMI is seamless. From administrative help to tech support, we’re here to provide anything you need, ensuring you can focus on what truly matters: growing your business and achieving success.',
+            `Our dedicated team is always on hand to ensure your experience at WAGMI is seamless. From administrative help to tech support, we're here to provide anything you need, ensuring you can focus on what truly matters: growing your business and achieving success.`,
     },
 ];
 
 const KnowMore = () => {
     return (
-        <section className="py-16 md:py-24 px-6 lg:px-16 overflow-hidden">
+        <section className="py-16 md:py-24 px-6 lg:px-16">
             <div className="max-w-[1440px] mx-auto">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
-                    {/* Left Column - Sticky */}
-                    <div className="w-full flex flex-col items-start lg:sticky lg:top-12 h-fit">
+                <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
+                    {/* Left Column - Sticky on lg screens */}
+                    <div className="w-full lg:w-1/2 flex flex-col items-start lg:sticky lg:top-24 lg:self-start">
                         <div className="relative w-full h-80 mb-4">
                             <Image
                                 src="/img/wagmi-poster.svg"
@@ -56,12 +55,16 @@ const KnowMore = () => {
                         </p>
                     </div>
 
-                    {/* Right Column - Scrollable Content */}
-                    <div className="w-full flex flex-col gap-6">
+                    {/* Right Column - Stacking Cards on lg screens */}
+                    <div className="w-full lg:w-1/2 flex flex-col gap-6 lg:gap-4">
                         {features.map((feature, index) => (
                             <div
                                 key={index}
-                                className="bg-white p-8 md:p-12 rounded-none shadow-sm border border-gray-100 flex flex-col md:flex-row gap-8 items-start hover:shadow-md transition-shadow duration-300"
+                                className="bg-white p-8 md:p-12 border border-gray-100 flex flex-col md:flex-row gap-8 items-start lg:sticky"
+                                style={{
+                                    top: `${100 + index * 30}px`,
+                                    zIndex: index + 1,
+                                }}
                             >
                                 <div className="shrink-0">
                                     <div className="w-16 h-16 rounded-full border border-gray-200 flex items-center justify-center text-gray-600">

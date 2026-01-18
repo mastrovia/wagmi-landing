@@ -56,7 +56,7 @@ const amenities: Amenity[] = [
 const Amenities = () => {
     return (
         <section className="px-12 py-16 md:py-24 overflow-hidden">
-            <div className="max-w-[1440px] mx-auto px-6 lg:px-16 mb-12">
+            <div className="max-w-[1440px] mb-12">
                 <h2 className="text-3xl md:text-5xl font-extrabold text-start text-dark mb-6 uppercase tracking-tight">
                     EVERYTHING YOU NEED TO SUCCEED
                 </h2>
