@@ -5,6 +5,7 @@ import Amenities from './sections/Amentities';
 import PrefferedFor from './sections/PrefferedFor';
 import KnowMore from './sections/KnowMore';
 import Testimonials from './sections/Testimonials';
+import Locations from './sections/Locations';
 
 const Home = () => {
     return (
@@ -17,6 +18,7 @@ const Home = () => {
                 <PrefferedFor />
                 <KnowMore />
                 <Testimonials />
+                <Locations />
             </main>
         </div>
     );
