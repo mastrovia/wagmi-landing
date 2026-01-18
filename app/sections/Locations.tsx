@@ -68,8 +68,8 @@ const Locations = () => {
                 </div>
 
                 {/* Contact Grid & Map Container */}
-                <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 md:p-8">
-                    <div className="border border-gray-100 rounded-sm overflow-hidden">
+                <div className="bg-white shadow-sm border border-gray-100 p-6 md:p-8">
+                    <div className="border border-gray-100 overflow-hidden">
                         {/* Contact Info Grid */}
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-y md:divide-y-0 md:divide-x border-b border-gray-100">
                             {contactInfo.map((item, index) => (
@@ -77,7 +77,7 @@ const Locations = () => {
                                     key={index}
                                     className="p-8 md:p-10 flex flex-col items-center text-center hover:bg-gray-50 transition-colors"
                                 >
-                                    <div className="w-12 h-12 rounded-lg border border-primary/20 bg-primary/5 flex items-center justify-center text-primary mb-6">
+                                    <div className="w-12 h-12 border border-primary/20 bg-primary/5 flex items-center justify-center text-primary mb-6">
                                         <item.icon className="text-2xl" />
                                     </div>
                                     <h3 className="text-dark font-bold mb-2">{item.title}</h3>
@@ -104,7 +104,7 @@ const Locations = () => {
                             </div>
 
                             {/* Location Overlay Card */}
-                            <div className="absolute bottom-6 left-6 md:bottom-12 md:left-12 bg-white p-6 rounded-lg shadow-lg max-w-xs md:max-w-sm w-full">
+                            <div className="absolute bottom-6 left-6 md:bottom-12 md:left-12 bg-white p-6 shadow-lg max-w-xs md:max-w-sm w-full">
                                 <h3 className="text-xl font-bold text-dark mb-2">
                                     {activeLocation.city}
                                 </h3>
@@ -113,7 +113,7 @@ const Locations = () => {
                                 </p>
 
                                 <div className="flex items-center justify-between gap-4">
-                                    <button className="flex-1 bg-primary text-white py-2.5 px-4 rounded-md font-bold text-sm flex items-center justify-center gap-2 hover:bg-primary/90 transition-colors">
+                                    <button className="flex-1 bg-primary text-white py-2.5 px-4 font-bold text-sm flex items-center justify-center gap-2 hover:bg-primary/90 transition-colors">
                                         Contact <GoArrowUpRight className="text-lg" />
                                     </button>
                                     <div className="flex items-center gap-2 text-dark font-bold text-sm">
@@ -125,8 +125,8 @@ const Locations = () => {
                             {/* Map Markers (Simulated) */}
                             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                                 <div className="relative">
-                                    <div className="w-12 h-12 bg-primary/20 rounded-full animate-ping absolute inset-0"></div>
-                                    <div className="w-12 h-12 bg-dark text-white rounded-full flex items-center justify-center relative shadow-xl border-4 border-white">
+                                    <div className="w-12 h-12 bg-primary/20 animate-ping absolute inset-0"></div>
+                                    <div className="w-12 h-12 bg-dark text-white flex items-center justify-center relative shadow-xl border-4 border-white">
                                         <BiMap className="text-2xl" />
                                     </div>
                                 </div>
