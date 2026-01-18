@@ -1,0 +1,165 @@
+'use client';
+import React, { useState } from 'react';
+import Image from 'next/image';
+import { motion, AnimatePresence } from 'framer-motion';
+
+type Space = {
+    id: number;
+    title: string;
+    description: string;
+    image: string;
+};
+
+const spaces: Space[] = [
+    {
+        id: 1,
+        title: 'DAILY PASS',
+        description:
+            'Perfect for freelancers and travelers who need a productivity boost for the day.',
+        image: 'https://placehold.co/600x600/png',
+    },
+    {
+        id: 2,
+        title: 'CO-WORKING DESK',
+        description: 'A dedicated desk in a shared space, ideal for networking and collaboration.',
+        image: 'https://placehold.co/600x600/png',
+    },
+    {
+        id: 3,
+        title: 'PRIVATE CABIN',
+        description: 'Quiet, enclosed spaces for teams needing focus and privacy.',
+        image: 'https://placehold.co/600x600/png',
+    },
+    {
+        id: 4,
+        title: 'VIRTUAL OFFICE',
+        description: 'Professional business address and mail handling without the physical space.',
+        image: 'https://placehold.co/600x600/png',
+    },
+    {
+        id: 5,
+        title: 'MEETING ROOMS',
+        description: 'Fully equipped rooms for your client meetings and team brainstorming.',
+        image: 'https://placehold.co/600x600/png',
+    },
+];
+
+const OurSpaces = () => {
+    const [activeId, setActiveId] = useState<number>(2);
+
+    const activeSpace = spaces.find((s) => s.id === activeId) || spaces[0];
+
+    return (
+        <section className="bg-[#F3F4FB] py-16 md:py-24 px-6 lg:px-16 overflow-hidden">
+            <div className="max-w-[1440px] mx-auto">
+                <h2 className="text-4xl md:text-5xl font-extrabold text-start text-dark mb-16 uppercase tracking-tight">
+                    OUR SPACES
+                </h2>
+
+                <div className="flex flex-col lg:flex-row gap-12 lg:gap-24">
+                    {/* Left Column: List with Custom Stepper */}
+                    <div className="flex-1 flex relative">
+                        {/* Stepper Container */}
+                        <div className="hidden md:block absolute left-8 top-8 bottom-8 w-[2px] bg-gray-300">
+                            {/* Active Line Segment */}
+                            <motion.div
+                                className="absolute w-[4px] -left-[1px] bg-primary"
+                                initial={false}
+                                animate={{
+                                    height: `${100 / spaces.length}%`,
+                                    top: `${((activeId - 1) / spaces.length) * 100}%`,
+                                }}
+                                transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                            />
+                        </div>
+
+                        {/* Counter */}
+                        <div
+                            className="hidden md:block absolute left-0 text-sm font-bold text-dark transition-all duration-300"
+                            style={{
+                                top: `calc(${((activeId - 1) / spaces.length) * 100}% + (${100 / spaces.length / 2}%))`,
+                                transform: 'translateY(-50%)',
+                            }}
+                        >
+                            0{activeId} / 0{spaces.length}
+                        </div>
+
+                        {/* List Items */}
+                        <div className="flex-1 flex flex-col ml-0 md:ml-20">
+                            {spaces.map((space) => (
+                                <div key={space.id} className="relative flex-1">
+                                    <button
+                                        onClick={() => setActiveId(space.id)}
+                                        className="w-full h-24 text-left pl-8 group outline-none focus:outline-none flex items-center"
+                                    >
+                                        {/* Animated Background for Active Item */}
+                                        {activeId === space.id && (
+                                            <motion.div
+                                                layoutId="active-bg"
+                                                className="absolute inset-0 bg-primary shadow-lg z-0 w-full"
+                                                initial={false}
+                                                transition={{
+                                                    type: 'spring',
+                                                    stiffness: 400,
+                                                    damping: 35,
+                                                }}
+                                            />
+                                        )}
+
+                                        <span
+                                            className={`relative z-10 text-lg md:text-xl font-bold uppercase tracking-wide transition-colors duration-200 ${
+                                                activeId === space.id
+                                                    ? 'text-white'
+                                                    : 'text-dark group-hover:text-primary'
+                                            }`}
+                                        >
+                                            {space.title}
+                                        </span>
+                                    </button>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Right Column: Image Preview */}
+                    <div className="flex-1 h-[400px] md:h-[600px] relative rounded-lg overflow-hidden group">
+                        <AnimatePresence mode="wait">
+                            <motion.div
+                                key={activeSpace.id}
+                                className="absolute inset-0"
+                                initial={{ opacity: 0, scale: 1.05 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                exit={{ opacity: 0 }}
+                                transition={{ duration: 0.4 }}
+                            >
+                                <Image
+                                    src={activeSpace.image}
+                                    alt={activeSpace.title}
+                                    fill
+                                    className="object-cover"
+                                />
+
+                                {/* Gradient Overlay */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+
+                                {/* Text Content */}
+                                <div className="absolute bottom-0 left-0 p-8 md:p-10 w-full">
+                                    <motion.p
+                                        initial={{ y: 20, opacity: 0 }}
+                                        animate={{ y: 0, opacity: 1 }}
+                                        transition={{ delay: 0.1 }}
+                                        className="text-white text-lg md:text-xl font-bold uppercase leading-relaxed max-w-lg"
+                                    >
+                                        {activeSpace.description.toUpperCase()}
+                                    </motion.p>
+                                </div>
+                            </motion.div>
+                        </AnimatePresence>
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+};
+
+export default OurSpaces;
