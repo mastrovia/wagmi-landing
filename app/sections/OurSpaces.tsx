@@ -60,10 +60,10 @@ const OurSpaces = () => {
                     {/* Left Column: List with Custom Stepper */}
                     <div className="flex-1 flex relative">
                         {/* Stepper Container */}
-                        <div className="hidden md:block absolute left-8 top-8 bottom-8 w-[2px] bg-gray-300">
+                        <div className="hidden md:block absolute left-6 top-4 bottom-4 w-[1px] bg-gray-300">
                             {/* Active Line Segment */}
                             <motion.div
-                                className="absolute w-[4px] -left-[1px] bg-primary"
+                                className="absolute w-[2px] -left-[0.5px] bg-primary"
                                 initial={false}
                                 animate={{
                                     height: `${100 / spaces.length}%`,
@@ -73,24 +73,28 @@ const OurSpaces = () => {
                             />
                         </div>
 
-                        {/* Counter */}
-                        <div
-                            className="hidden md:block absolute left-0 text-sm font-bold text-dark transition-all duration-300"
+                        {/* Counter - positioned at bottom of active segment */}
+                        <motion.div
+                            className="hidden md:block absolute -left-6 text-xs font-bold text-primary transition-all duration-300"
+                            initial={false}
+                            animate={{
+                                top: `${(activeId / spaces.length) * 100}%`,
+                            }}
+                            transition={{ type: 'tween', stiffness: 300, damping: 40 }}
                             style={{
-                                top: `calc(${((activeId - 1) / spaces.length) * 100}% + (${100 / spaces.length / 2}%))`,
-                                transform: 'translateY(-50%)',
+                                transform: 'translateY(-100%)',
                             }}
                         >
-                            0{activeId} / 0{spaces.length}
-                        </div>
+                            0{activeId} /0{spaces.length}
+                        </motion.div>
 
                         {/* List Items */}
-                        <div className="flex-1 flex flex-col ml-0 md:ml-20">
+                        <div className="flex-1 flex flex-col ml-0 md:ml-16">
                             {spaces.map((space) => (
                                 <div key={space.id} className="relative flex-1">
                                     <button
                                         onClick={() => setActiveId(space.id)}
-                                        className="w-full h-24 text-left pl-8 group outline-none focus:outline-none flex items-center"
+                                        className="w-full h-16 text-left pl-8 group outline-none focus:outline-none flex items-center justify-start"
                                     >
                                         {/* Animated Background for Active Item */}
                                         {activeId === space.id && (
@@ -107,7 +111,7 @@ const OurSpaces = () => {
                                         )}
 
                                         <span
-                                            className={`relative z-10 text-lg md:text-xl font-bold uppercase tracking-wide transition-colors duration-200 ${
+                                            className={`relative z-10 text-base md:text-lg font-bold uppercase tracking-wide transition-colors duration-200 ${
                                                 activeId === space.id
                                                     ? 'text-white'
                                                     : 'text-dark group-hover:text-primary'
@@ -122,7 +126,7 @@ const OurSpaces = () => {
                     </div>
 
                     {/* Right Column: Image Preview */}
-                    <div className="flex-1 h-[400px] md:h-[600px] relative rounded-lg overflow-hidden group">
+                    <div className="flex-1 h-[350px] md:h-[450px] relative rounded-lg overflow-hidden group">
                         <AnimatePresence mode="wait">
                             <motion.div
                                 key={activeSpace.id}
