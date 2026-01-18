@@ -3,6 +3,7 @@ import Hero from './sections/Hero';
 import OurSpaces from './sections/OurSpaces';
 import Amenities from './sections/Amentities';
 import PrefferedFor from './sections/PrefferedFor';
+import KnowMore from './sections/KnowMore';
 
 const Home = () => {
     return (
@@ -13,6 +14,7 @@ const Home = () => {
                 <OurSpaces />
                 <Amenities />
                 <PrefferedFor />
+                <KnowMore />
             </main>
         </div>
     );
