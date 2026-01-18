@@ -6,7 +6,10 @@ import { BiMap, BiPhone, BiEnvelope } from 'react-icons/bi';
 
 const Footer = () => {
     return (
-        <footer className="bg-[#111827] text-white pt-16 pb-8 border-t border-gray-800">
+        <footer
+            id="contact"
+            className="bg-[#111827] text-white pt-16 pb-8 border-t border-gray-800"
+        >
             <div className="max-w-[1440px] mx-auto px-6 lg:px-16">
                 {/* Top Section: Logo & Columns */}
                 <motion.div

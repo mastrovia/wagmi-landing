@@ -75,7 +75,7 @@ const Amenities = () => {
     }, []);
 
     return (
-        <section className="px-12 py-16 md:py-24 overflow-hidden">
+        <section id="amenities" className="px-12 py-16 md:py-24 overflow-hidden">
             <motion.div
                 className="max-w-[1440px] mb-12"
                 initial={{ opacity: 0, y: 30 }}

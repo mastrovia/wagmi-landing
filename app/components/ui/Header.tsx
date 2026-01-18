@@ -10,7 +10,7 @@ const Header = (props: Props) => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     const navLinks = [
-        { name: 'HOME', href: '/' },
+        { name: 'HOME', href: '#home' },
         { name: 'OUR SPACES', href: '#spaces' },
         { name: 'AMENITIES', href: '#amenities' },
         { name: 'LOCATION', href: '#location' },
