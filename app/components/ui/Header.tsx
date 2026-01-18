@@ -4,9 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 
-type Props = {};
-
-const Header = (props: Props) => {
+const Header = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     const navLinks = [
@@ -16,6 +14,16 @@ const Header = (props: Props) => {
         { name: 'LOCATION', href: '#location' },
         { name: 'CONTACT', href: '#contact' },
     ];
+
+    const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+        e.preventDefault();
+        const targetId = href.replace('#', '');
+        const element = document.getElementById(targetId);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        setIsMobileMenuOpen(false);
+    };
 
     const menuVariants = {
         closed: {
@@ -73,13 +81,14 @@ const Header = (props: Props) => {
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-8">
                 {navLinks.map((link) => (
-                    <Link
+                    <a
                         key={link.name}
                         href={link.href}
-                        className="text-gray-800 hover:text-blue-600 font-semibold text-sm tracking-wide transition-colors"
+                        onClick={(e) => handleNavClick(e, link.href)}
+                        className="text-gray-800 hover:text-blue-600 font-semibold text-sm tracking-wide transition-colors cursor-pointer"
                     >
                         {link.name}
-                    </Link>
+                    </a>
                 ))}
             </nav>
 
@@ -142,15 +151,15 @@ const Header = (props: Props) => {
                         animate="open"
                         exit="closed"
                     >
-                        {navLinks.map((link, index) => (
+                        {navLinks.map((link) => (
                             <motion.div key={link.name} variants={linkVariants} className="w-full">
-                                <Link
+                                <a
                                     href={link.href}
-                                    className="text-gray-800 hover:text-blue-600 hover:bg-blue-50 font-semibold text-sm tracking-wide transition-colors w-full text-center py-3 block"
-                                    onClick={() => setIsMobileMenuOpen(false)}
+                                    onClick={(e) => handleNavClick(e, link.href)}
+                                    className="text-gray-800 hover:text-blue-600 hover:bg-blue-50 font-semibold text-sm tracking-wide transition-colors w-full text-center py-3 block cursor-pointer"
                                 >
                                     {link.name}
-                                </Link>
+                                </a>
                             </motion.div>
                         ))}
                     </motion.div>
