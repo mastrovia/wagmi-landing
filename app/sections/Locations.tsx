@@ -68,7 +68,7 @@ const Locations = () => {
                 </div>
 
                 {/* Contact Grid & Map Container */}
-                <div className="bg-white shadow-sm border border-gray-100 p-6 md:p-8">
+                <div className="bg-white border border-gray-100 p-6 md:p-8">
                     <div className="border border-gray-100 overflow-hidden">
                         {/* Contact Info Grid */}
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-y md:divide-y-0 md:divide-x border-b border-gray-100">
@@ -113,9 +113,9 @@ const Locations = () => {
                                 </p>
 
                                 <div className="flex items-center justify-between gap-4">
-                                    <button className="flex-1 bg-primary text-white py-2.5 px-4 font-bold text-sm flex items-center justify-center gap-2 hover:bg-primary/90 transition-colors">
-                                        Contact <GoArrowUpRight className="text-lg" />
-                                    </button>
+                                    <Button>
+                                        Contact
+                                    </Button>
                                     <div className="flex items-center gap-2 text-dark font-bold text-sm">
                                         <BiPhoneCall /> {activeLocation.phone}
                                     </div>

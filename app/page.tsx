@@ -6,6 +6,7 @@ import PrefferedFor from './sections/PrefferedFor';
 import KnowMore from './sections/KnowMore';
 import Testimonials from './sections/Testimonials';
 import Locations from './sections/Locations';
+import Footer from './sections/Footer';
 
 const Home = () => {
     return (
@@ -19,6 +20,7 @@ const Home = () => {
                 <KnowMore />
                 <Testimonials />
                 <Locations />
+                <Footer />
             </main>
         </div>
     );
