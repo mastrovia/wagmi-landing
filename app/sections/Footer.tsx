@@ -28,20 +28,20 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
                         {/* Column 1: Description */}
-                        <div className="flex flex-col gap-6">
-                            <h3 className="text-xl font-bold text-white">Wagmi Workspace</h3>
-                            <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
+                        <div className="flex flex-col gap-4">
+                            <h3 className="text-lg font-bold text-white">Wagmi Workspace</h3>
+                            <p className="text-gray-400 text-sm leading-relaxed">
                                 A modern coworking space in Kerala offering flexible office
                                 solutions for professionals, startups, and teams.
                             </p>
                         </div>
 
                         {/* Column 2: Services */}
-                        <div className="flex flex-col gap-6">
-                            <h3 className="text-xl font-bold text-white">Services</h3>
-                            <ul className="flex flex-col gap-4 text-gray-400 text-sm font-medium">
+                        <div className="flex flex-col gap-4">
+                            <h3 className="text-lg font-bold text-white">Services</h3>
+                            <ul className="flex flex-col gap-3 text-gray-400 text-sm">
                                 <li>
                                     <a href="#" className="hover:text-primary transition-colors">
                                         HotDesk
@@ -66,11 +66,11 @@ const Footer = () => {
                         </div>
 
                         {/* Column 3: Contact */}
-                        <div className="flex flex-col gap-6">
-                            <h3 className="text-xl font-bold text-white">Contact</h3>
-                            <ul className="flex flex-col gap-6 text-gray-400 text-sm font-medium">
+                        <div className="flex flex-col gap-4">
+                            <h3 className="text-lg font-bold text-white">Contact</h3>
+                            <ul className="flex flex-col gap-4 text-gray-400 text-sm">
                                 <li className="flex items-start gap-3">
-                                    <BiMap className="text-xl shrink-0 mt-0.5" />
+                                    <BiMap className="text-lg shrink-0 mt-0.5" />
                                     <span>
                                         Business District,
                                         <br />
@@ -78,20 +78,20 @@ const Footer = () => {
                                     </span>
                                 </li>
                                 <li className="flex items-center gap-3">
-                                    <BiPhone className="text-xl shrink-0" />
+                                    <BiPhone className="text-lg shrink-0" />
                                     <span>+91 81299 88389</span>
                                 </li>
                                 <li className="flex items-center gap-3">
-                                    <BiEnvelope className="text-xl shrink-0" />
+                                    <BiEnvelope className="text-lg shrink-0" />
                                     <span>admin@wagmiworkspace.com</span>
                                 </li>
                             </ul>
                         </div>
 
                         {/* Column 4: Social */}
-                        <div className="flex flex-col gap-6">
-                            <h3 className="text-xl font-bold text-white">Social</h3>
-                            <ul className="flex flex-col gap-4 text-gray-400 text-sm font-medium">
+                        <div className="flex flex-col gap-4">
+                            <h3 className="text-lg font-bold text-white">Social</h3>
+                            <ul className="flex flex-col gap-3 text-gray-400 text-sm">
                                 <li>
                                     <a href="#" className="hover:text-primary transition-colors">
                                         Twitter
@@ -116,9 +116,23 @@ const Footer = () => {
                 <div className="w-full h-px bg-gray-800 mb-8" />
 
                 {/* Bottom Section */}
-                <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-gray-400 text-sm font-medium mb-12">
-                    <p>© 2025 Wagmi Workspace. All rights reserved.</p>
-                    <div className="flex gap-8">
+                <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-gray-500 text-sm mb-8">
+                    <div className="flex items-center gap-2">
+                        <p>© 2025 Wagmi Workspace. All rights reserved.</p>
+                        <span className="text-gray-600">|</span>
+                        <span className="text-white text-xs">
+                            Powered by{' '}
+                            <a
+                                href="https://mastrovia.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:text-primary underline transition-colors"
+                            >
+                                mastrovia.com
+                            </a>
+                        </span>
+                    </div>
+                    <div className="flex gap-6">
                         <a href="#" className="hover:text-white transition-colors">
                             Privacy Policy
                         </a>
@@ -128,7 +142,6 @@ const Footer = () => {
                     </div>
                 </div>
 
-                {/* Footer Note */}
                 <div className="text-center text-gray-600 text-xs leading-relaxed max-w-4xl mx-auto">
                     <p>
                         Wagmi Workspace is a modern coworking space in Kerala offering flexible

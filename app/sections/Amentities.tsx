@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { MdArrowOutward } from 'react-icons/md';
@@ -54,6 +54,26 @@ const amenities: Amenity[] = [
 ];
 
 const Amenities = () => {
+    const containerRef = useRef<HTMLDivElement>(null);
+    const [dragConstraints, setDragConstraints] = useState({ left: 0, right: 0 });
+
+    useEffect(() => {
+        const updateConstraints = () => {
+            if (containerRef.current) {
+                const scrollWidth = containerRef.current.scrollWidth;
+                const clientWidth = containerRef.current.clientWidth;
+                setDragConstraints({
+                    left: -(scrollWidth - clientWidth),
+                    right: 0,
+                });
+            }
+        };
+
+        updateConstraints();
+        window.addEventListener('resize', updateConstraints);
+        return () => window.removeEventListener('resize', updateConstraints);
+    }, []);
+
     return (
         <section className="px-12 py-16 md:py-24 overflow-hidden">
             <motion.div
@@ -72,64 +92,72 @@ const Amenities = () => {
                 </p>
             </motion.div>
 
-            {/* Scrollable Container */}
-            <motion.div
-                className="pl-6 lg:pl-16 overflow-x-auto pb-8 hide-scrollbar flex gap-6 md:gap-8 snap-x snap-mandatory pr-6 lg:pr-16"
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: '-100px' }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-            >
-                {amenities.map((item) => (
-                    <motion.div
-                        key={item.id}
-                        className="relative min-w-[300px] md:min-w-[350px] h-[450px] md:h-[500px] rounded-lg overflow-hidden snap-start group cursor-pointer"
-                        initial="rest"
-                        whileHover="hover"
-                        animate="rest"
-                    >
-                        {/* Background Image */}
-                        <Image
-                            src={item.image}
-                            alt={item.title}
-                            fill
-                            className="object-cover transition-transform duration-500 group-hover:scale-110"
-                        />
+            {/* Scrollable Container with Drag */}
+            <div className="overflow-hidden cursor-grab active:cursor-grabbing" ref={containerRef}>
+                <motion.div
+                    className="pl-6 lg:pl-16 pb-8 flex gap-6 md:gap-8 pr-6 lg:pr-16"
+                    drag="x"
+                    dragConstraints={dragConstraints}
+                    dragElastic={0.1}
+                    dragTransition={{ bounceStiffness: 300, bounceDamping: 30 }}
+                    initial={{ opacity: 0, x: 50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, margin: '-100px' }}
+                    transition={{ duration: 0.5, delay: 0.1 }}
+                >
+                    {amenities.map((item) => (
+                        <motion.div
+                            key={item.id}
+                            className="relative min-w-[300px] md:min-w-[350px] h-[450px] md:h-[500px] rounded-lg overflow-hidden snap-start group cursor-pointer"
+                            initial="rest"
+                            whileHover="hover"
+                            animate="rest"
+                        >
+                            {/* Background Image */}
+                            <Image
+                                src={item.image}
+                                alt={item.title}
+                                fill
+                                className="object-cover transition-transform duration-500 group-hover:scale-110"
+                            />
 
-                        {/* Gradient Overlay */}
-                        <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
+                            {/* Gradient Overlay */}
+                            <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
 
-                        {/* Content */}
-                        <div className="absolute bottom-0 left-0 w-full p-6 md:p-8 flex flex-col justify-end">
-                            <motion.div
-                                variants={{
-                                    rest: { y: 0 },
-                                    hover: { y: -10 },
-                                }}
-                                transition={{ duration: 0.3 }}
-                            >
-                                <div className="flex items-center justify-between mb-2">
-                                    <h3 className="text-white text-2xl font-bold">{item.title}</h3>
-                                    <MdArrowOutward className="text-white text-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0" />
-                                </div>
-
+                            {/* Content */}
+                            <div className="absolute bottom-0 left-0 w-full p-6 md:p-8 flex flex-col justify-end">
                                 <motion.div
                                     variants={{
-                                        rest: { height: 0, opacity: 0, marginTop: 0 },
-                                        hover: { height: 'auto', opacity: 1, marginTop: 16 },
+                                        rest: { y: 0 },
+                                        hover: { y: -10 },
                                     }}
                                     transition={{ duration: 0.3 }}
-                                    className="overflow-hidden"
                                 >
-                                    <p className="text-gray-200 text-sm md:text-base leading-relaxed">
-                                        {item.description}
-                                    </p>
+                                    <div className="flex items-center justify-between mb-2">
+                                        <h3 className="text-white text-2xl font-bold">
+                                            {item.title}
+                                        </h3>
+                                        <MdArrowOutward className="text-white text-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0" />
+                                    </div>
+
+                                    <motion.div
+                                        variants={{
+                                            rest: { height: 0, opacity: 0, marginTop: 0 },
+                                            hover: { height: 'auto', opacity: 1, marginTop: 16 },
+                                        }}
+                                        transition={{ duration: 0.3 }}
+                                        className="overflow-hidden"
+                                    >
+                                        <p className="text-gray-200 text-sm md:text-base leading-relaxed">
+                                            {item.description}
+                                        </p>
+                                    </motion.div>
                                 </motion.div>
-                            </motion.div>
-                        </div>
-                    </motion.div>
-                ))}
-            </motion.div>
+                            </div>
+                        </motion.div>
+                    ))}
+                </motion.div>
+            </div>
 
             {/* Scrollbar hide utility */}
             <style jsx global>{`
