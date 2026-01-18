@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { BiSupport, BiMessageSquareDetail, BiMap, BiPhoneCall } from 'react-icons/bi';
 import Button from '../components/Button';
+import { useModal } from '../context/ModalContext';
 
 const contactInfo = [
     {
@@ -48,6 +49,7 @@ const locations = [
 
 const Locations = () => {
     const activeLocation = locations[0];
+    const { openContactModal } = useModal();
 
     return (
         <section className="bg-linear-to-b from-[#EAEBF8] to-[#FFFFFF] py-16 md:py-24 relative">
@@ -69,7 +71,9 @@ const Locations = () => {
                     </p>
 
                     <div className="flex justify-center">
-                        <Button variant="primary">Book a seat</Button>
+                        <Button variant="primary" onClick={openContactModal}>
+                            Book a seat
+                        </Button>
                     </div>
                 </motion.div>
 

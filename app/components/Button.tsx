@@ -1,6 +1,6 @@
+'use client';
 import React from 'react';
 import { GoArrowUpRight } from 'react-icons/go';
-import { MdOutlineArrowOutward } from 'react-icons/md';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     variant?: 'primary' | 'secondary' | 'outline';
@@ -12,11 +12,9 @@ const Button: React.FC<ButtonProps> = ({
     variant = 'primary',
     fullWidth = false,
     className = '',
+    onClick,
     ...props
 }) => {
-    // Base styles: removed default padding to handle inner layout manually if needed,
-    // but the design shows a structured layout.
-    // We'll use flexbox for the button content.
     const baseStyles =
         'inline-flex items-center justify-between pl-3 p-1.5 rounded-md font-medium transition-all duration-300 cursor-pointer group';
 
@@ -31,6 +29,7 @@ const Button: React.FC<ButtonProps> = ({
     return (
         <button
             className={`${baseStyles} ${variants[variant]} ${widthClass} ${className}`}
+            onClick={onClick}
             {...props}
         >
             <span className="mr-3 text-base font-semibold">{children}</span>

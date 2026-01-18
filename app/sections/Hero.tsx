@@ -3,8 +3,11 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Button from '../components/Button';
 import StatsCard from '../components/StatsCard';
+import { useModal } from '../context/ModalContext';
 
 const Hero = () => {
+    const { openContactModal } = useModal();
+
     return (
         <section className="max-w-[1440px] mx-auto px-6 pt-4 pb-12 md:pb-20 lg:px-16 overflow-hidden">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
@@ -65,7 +68,7 @@ const Hero = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.4, delay: 0.25 }}
                     >
-                        <Button variant="primary" className="mt-4">
+                        <Button variant="primary" className="mt-4" onClick={openContactModal}>
                             Book a seat
                         </Button>
                     </motion.div>
