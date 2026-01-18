@@ -1,12 +1,13 @@
-'use client'
-import React, { useState } from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
+'use client';
+import React, { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { motion, AnimatePresence } from 'framer-motion';
 
-type Props = {}
+type Props = {};
 
 const Header = (props: Props) => {
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     const navLinks = [
         { name: 'HOME', href: '/' },
@@ -14,7 +15,44 @@ const Header = (props: Props) => {
         { name: 'AMENITIES', href: '#amenities' },
         { name: 'LOCATION', href: '#location' },
         { name: 'CONTACT', href: '#contact' },
-    ]
+    ];
+
+    const menuVariants = {
+        closed: {
+            opacity: 0,
+            height: 0,
+            transition: {
+                duration: 0.3,
+                ease: 'easeInOut',
+                when: 'afterChildren',
+            },
+        },
+        open: {
+            opacity: 1,
+            height: 'auto',
+            transition: {
+                duration: 0.3,
+                ease: 'easeInOut',
+                when: 'beforeChildren',
+                staggerChildren: 0.05,
+            },
+        },
+    };
+
+    const linkVariants = {
+        closed: {
+            opacity: 0,
+            x: -20,
+        },
+        open: {
+            opacity: 1,
+            x: 0,
+            transition: {
+                duration: 0.3,
+                ease: 'easeOut',
+            },
+        },
+    };
 
     return (
         <header className="w-full bg-[#F3F4FB] py-4 px-6 md:px-12 flex items-center justify-between sticky top-0 z-50">
@@ -52,35 +90,74 @@ const Header = (props: Props) => {
                     className="text-gray-800 focus:outline-none p-2"
                     aria-label="Toggle menu"
                 >
-                    {isMobileMenuOpen ? (
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    ) : (
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    )}
+                    <motion.div animate={isMobileMenuOpen ? 'open' : 'closed'}>
+                        {isMobileMenuOpen ? (
+                            <motion.svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="h-6 w-6"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                initial={{ rotate: -90, opacity: 0 }}
+                                animate={{ rotate: 0, opacity: 1 }}
+                                transition={{ duration: 0.2 }}
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M6 18L18 6M6 6l12 12"
+                                />
+                            </motion.svg>
+                        ) : (
+                            <motion.svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="h-6 w-6"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                initial={{ rotate: 90, opacity: 0 }}
+                                animate={{ rotate: 0, opacity: 1 }}
+                                transition={{ duration: 0.2 }}
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M4 6h16M4 12h16M4 18h16"
+                                />
+                            </motion.svg>
+                        )}
+                    </motion.div>
                 </button>
             </div>
 
             {/* Mobile Menu Overlay */}
-            {isMobileMenuOpen && (
-                <div className="absolute top-full left-0 w-full bg-[#F3F4FB] shadow-lg md:hidden flex flex-col items-center py-4 space-y-4 border-t border-gray-200">
-                    {navLinks.map((link) => (
-                        <Link
-                            key={link.name}
-                            href={link.href}
-                            className="text-gray-800 hover:text-blue-600 font-semibold text-sm tracking-wide transition-colors w-full text-center py-2"
-                            onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                            {link.name}
-                        </Link>
-                    ))}
-                </div>
-            )}
+            <AnimatePresence>
+                {isMobileMenuOpen && (
+                    <motion.div
+                        className="absolute top-full left-0 w-full bg-[#F3F4FB] shadow-lg md:hidden flex flex-col items-center py-4 space-y-2 border-t border-gray-200 overflow-hidden"
+                        variants={menuVariants}
+                        initial="closed"
+                        animate="open"
+                        exit="closed"
+                    >
+                        {navLinks.map((link, index) => (
+                            <motion.div key={link.name} variants={linkVariants} className="w-full">
+                                <Link
+                                    href={link.href}
+                                    className="text-gray-800 hover:text-blue-600 hover:bg-blue-50 font-semibold text-sm tracking-wide transition-colors w-full text-center py-3 block"
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                >
+                                    {link.name}
+                                </Link>
+                            </motion.div>
+                        ))}
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </header>
-    )
-}
+    );
+};
 
-export default Header
+export default Header;

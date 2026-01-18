@@ -6,7 +6,7 @@ import PrefferedFor from './sections/PrefferedFor';
 import KnowMore from './sections/KnowMore';
 import Testimonials from './sections/Testimonials';
 import Locations from './sections/Locations';
-import Footer from './sections/Footer';
+import Footer from './components/ui/Footer';
 
 const Home = () => {
     return (
