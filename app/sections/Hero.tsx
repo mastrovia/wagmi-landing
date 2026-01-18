@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Button from '../components/Button';
+import StatsCard from '../components/StatsCard';
 
 const Hero = () => {
     return (
@@ -72,31 +73,9 @@ const Hero = () => {
 
                     {/* Bottom Stats Row */}
                     <div className="grid grid-cols-3 gap-4 md:gap-6 mt-2">
-                        {/* Stat Card 1 */}
-                        <div className="bg-linear-to-b from-[#EAEBF8] to-[#F3F4FB] p-4 md:p-6 rounded-md border border-[#E0E4F5] text-center shadow-sm hover:shadow-md transition-shadow">
-                            <div className="text-2xl md:text-3xl font-bold text-dark mb-1">12+</div>
-                            <div className="text-xs md:text-sm font-semibold text-gray-700">
-                                Years Experience
-                            </div>
-                        </div>
-
-                        {/* Stat Card 2 */}
-                        <div className="bg-linear-to-b from-[#EAEBF8] to-[#F3F4FB] p-4 md:p-6 rounded-md border border-[#E0E4F5] text-center shadow-sm hover:shadow-md transition-shadow">
-                            <div className="text-2xl md:text-3xl font-bold text-dark mb-1">86+</div>
-                            <div className="text-xs md:text-sm font-semibold text-gray-700">
-                                Spaces Available
-                            </div>
-                        </div>
-
-                        {/* Stat Card 3 */}
-                        <div className="bg-linear-to-b from-[#EAEBF8] to-[#F3F4FB] p-4 md:p-6 rounded-md border border-[#E0E4F5] text-center shadow-sm hover:shadow-md transition-shadow">
-                            <div className="text-2xl md:text-3xl font-bold text-dark mb-1">
-                                12k+
-                            </div>
-                            <div className="text-xs md:text-sm font-semibold text-gray-700">
-                                Satisfied Clients
-                            </div>
-                        </div>
+                        <StatsCard value="12+" label="Years Experience" />
+                        <StatsCard value="86+" label="Spaces Available" />
+                        <StatsCard value="12k+" label="Satisfied Clients" />
                     </div>
                 </div>
             </div>
