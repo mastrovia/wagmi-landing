@@ -33,7 +33,7 @@ const Hero = () => {
                         and remote teams to work, collaborate, and grow.
                     </p>
 
-                    <Button variant="primary" className="px-8! py-4! text-lg mt-4 group">
+                    <Button variant="primary" className="mt-4">
                         Book a seat
                     </Button>
                 </div>
