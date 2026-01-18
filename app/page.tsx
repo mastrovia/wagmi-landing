@@ -2,6 +2,7 @@ import Header from './components/ui/Header';
 import Hero from './sections/Hero';
 import OurSpaces from './sections/OurSpaces';
 import Amenities from './sections/Amentities';
+import PrefferedFor from './sections/PrefferedFor';
 
 const Home = () => {
     return (
@@ -11,6 +12,7 @@ const Home = () => {
                 <Hero />
                 <OurSpaces />
                 <Amenities />
+                <PrefferedFor />
             </main>
         </div>
     );
