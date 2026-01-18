@@ -1,6 +1,7 @@
 import Header from './components/ui/Header';
 import Hero from './sections/Hero';
 import OurSpaces from './sections/OurSpaces';
+import Amenities from './sections/Amentities';
 
 const Home = () => {
     return (
@@ -9,6 +10,7 @@ const Home = () => {
             <main>
                 <Hero />
                 <OurSpaces />
+                <Amenities />
             </main>
         </div>
     );
