@@ -3,15 +3,15 @@ import Button from '../components/Button';
 
 const Hero = () => {
     return (
-        <section className="max-w-[1440px] mx-auto px-6 py-12 md:py-20 lg:px-16 overflow-hidden">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <section className="max-w-[1440px] mx-auto px-6 pt-4 pb-12 md:pb-20 lg:px-16 overflow-hidden">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
                 {/* Left Column */}
                 <div className="flex flex-col items-start space-y-8">
                     {/* Logo/Icon */}
                     <div className="relative w-32 h-24 mb-4">
                         {/* Using the logo as the illustration above the text as seen in design */}
                         <Image
-                            src="/logo/logo.svg"
+                            src="/img/workspace-illustration.svg"
                             alt="Wagmi Illustration"
                             fill
                             className="object-contain object-left"
@@ -35,26 +35,13 @@ const Hero = () => {
 
                     <Button variant="primary" className="px-8! py-4! text-lg mt-4 group">
                         Book a seat
-                        <svg
-                            className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M5 19L19 5M19 5H9M19 5V15"
-                            />
-                        </svg>
                     </Button>
                 </div>
 
                 {/* Right Column */}
                 <div className="flex flex-col gap-6">
                     {/* Top Wide Image */}
-                    <div className="relative w-full h-64 md:h-80 rounded-sm overflow-hidden bg-gray-200">
+                    <div className="relative w-full h-56 rounded-sm overflow-hidden bg-gray-200">
                         <Image
                             src="https://placehold.co/800x400/png"
                             alt="Office Space Large"
