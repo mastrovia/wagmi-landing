@@ -1,8 +1,9 @@
+'use client';
 import React from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 import { BiSupport, BiMessageSquareDetail, BiMap, BiPhoneCall } from 'react-icons/bi';
 import Button from '../components/Button';
-import { GoArrowUpRight } from 'react-icons/go';
 
 const contactInfo = [
     {
@@ -41,19 +42,24 @@ const locations = [
         city: 'Brisbane City',
         address: '53 Albert Street, Brisbane.',
         phone: '+61 234 5678',
-        coords: { x: '50%', y: '50%' }, // Placeholder for map marker positioning if we had a real map
+        coords: { x: '50%', y: '50%' },
     },
 ];
 
 const Locations = () => {
-    // Determine active location (first one since user asked for "random location")
     const activeLocation = locations[0];
 
     return (
         <section className="bg-linear-to-b from-[#EAEBF8] to-[#FFFFFF] py-16 md:py-24 relative">
             <div className="max-w-[1440px] mx-auto px-6 lg:px-16">
                 {/* Header Section */}
-                <div className="text-center max-w-3xl mx-auto mb-16">
+                <motion.div
+                    className="text-center max-w-3xl mx-auto mb-16"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: '-100px' }}
+                    transition={{ duration: 0.5 }}
+                >
                     <h2 className="text-3xl md:text-5xl font-extrabold text-dark mb-6 leading-tight">
                         Visit Wagmi Workspace and Experience a Better Work Environment
                     </h2>
@@ -65,7 +71,7 @@ const Locations = () => {
                     <div className="flex justify-center">
                         <Button variant="primary">Book a seat</Button>
                     </div>
-                </div>
+                </motion.div>
 
                 {/* Contact Grid & Map Container */}
                 <div className="bg-white border border-gray-100 p-6 md:p-8">
@@ -113,9 +119,7 @@ const Locations = () => {
                                 </p>
 
                                 <div className="flex items-center justify-between gap-4">
-                                    <Button>
-                                        Contact
-                                    </Button>
+                                    <Button>Contact</Button>
                                     <div className="flex items-center gap-2 text-dark font-bold text-sm">
                                         <BiPhoneCall /> {activeLocation.phone}
                                     </div>

@@ -52,15 +52,27 @@ const OurSpaces = () => {
     return (
         <section className="bg-[#F3F4FB] py-16 md:py-24 px-6 lg:px-16 overflow-hidden">
             <div className="max-w-[1440px] mx-auto">
-                <h2 className="text-4xl md:text-5xl font-extrabold text-start text-dark mb-16 uppercase tracking-tight">
+                <motion.h2
+                    className="text-4xl md:text-5xl font-extrabold text-start text-dark mb-16 uppercase tracking-tight"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: '-100px' }}
+                    transition={{ duration: 0.5 }}
+                >
                     OUR SPACES
-                </h2>
+                </motion.h2>
 
-                <div className="flex flex-col lg:flex-row gap-12 lg:gap-24">
+                <motion.div
+                    className="flex flex-col lg:flex-row gap-12 lg:gap-24"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: '-100px' }}
+                    transition={{ duration: 0.5, delay: 0.1 }}
+                >
                     {/* Left Column: List with Custom Stepper */}
                     <div className="flex-1 flex relative">
                         {/* Stepper Container */}
-                        <div className="hidden md:block absolute left-6 top-4 bottom-4 w-[1px] bg-gray-300">
+                        <div className="hidden md:block absolute left-6 top-4 bottom-4 w-px bg-gray-300">
                             {/* Active Line Segment */}
                             <motion.div
                                 className="absolute w-[2px] -left-[0.5px] bg-primary"
@@ -160,7 +172,7 @@ const OurSpaces = () => {
                             </motion.div>
                         </AnimatePresence>
                     </div>
-                </div>
+                </motion.div>
             </div>
         </section>
     );

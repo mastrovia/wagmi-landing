@@ -56,7 +56,13 @@ const amenities: Amenity[] = [
 const Amenities = () => {
     return (
         <section className="px-12 py-16 md:py-24 overflow-hidden">
-            <div className="max-w-[1440px] mb-12">
+            <motion.div
+                className="max-w-[1440px] mb-12"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-100px' }}
+                transition={{ duration: 0.5 }}
+            >
                 <h2 className="text-3xl md:text-5xl font-extrabold text-start text-dark mb-6 uppercase tracking-tight">
                     EVERYTHING YOU NEED TO SUCCEED
                 </h2>
@@ -64,10 +70,16 @@ const Amenities = () => {
                     OUR COWORKING SPACE IN KERALA COMES EQUIPPED WITH WORLD-CLASS AMENITIES TO
                     SUPPORT YOUR PRODUCTIVITY AND GROWTH.
                 </p>
-            </div>
+            </motion.div>
 
             {/* Scrollable Container */}
-            <div className="pl-6 lg:pl-16 overflow-x-auto pb-8 hide-scrollbar flex gap-6 md:gap-8 snap-x snap-mandatory pr-6 lg:pr-16">
+            <motion.div
+                className="pl-6 lg:pl-16 overflow-x-auto pb-8 hide-scrollbar flex gap-6 md:gap-8 snap-x snap-mandatory pr-6 lg:pr-16"
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: '-100px' }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+            >
                 {amenities.map((item) => (
                     <motion.div
                         key={item.id}
@@ -117,7 +129,7 @@ const Amenities = () => {
                         </div>
                     </motion.div>
                 ))}
-            </div>
+            </motion.div>
 
             {/* Scrollbar hide utility */}
             <style jsx global>{`

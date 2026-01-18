@@ -1,5 +1,7 @@
+'use client';
 import React from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 import { BiMap, BiPhone, BiEnvelope } from 'react-icons/bi';
 
 const Footer = () => {
@@ -7,7 +9,13 @@ const Footer = () => {
         <footer className="bg-[#111827] text-white pt-16 pb-8 border-t border-gray-800">
             <div className="max-w-[1440px] mx-auto px-6 lg:px-16">
                 {/* Top Section: Logo & Columns */}
-                <div className="flex flex-col mb-16">
+                <motion.div
+                    className="flex flex-col mb-16"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: '-100px' }}
+                    transition={{ duration: 0.5 }}
+                >
                     {/* Logo */}
                     <div className="mb-12">
                         <div className="relative w-32 h-10">
@@ -102,7 +110,7 @@ const Footer = () => {
                             </ul>
                         </div>
                     </div>
-                </div>
+                </motion.div>
 
                 {/* Divider */}
                 <div className="w-full h-px bg-gray-800 mb-8" />

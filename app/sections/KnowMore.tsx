@@ -1,4 +1,6 @@
+'use client';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 import { MdLocationOn, MdWifi, MdLightbulb } from 'react-icons/md';
 import { FaHandshake } from 'react-icons/fa';
 
@@ -6,26 +8,22 @@ const features = [
     {
         icon: MdLocationOn,
         title: 'Prime Location:',
-        description:
-            `Located in Unichira, Edapally, WAGMI offers unmatched convenience with easy access to Kochi's bustling areas like Thrikkakara, Kakkanad, and Edapally. You'll enjoy proximity to major transportation, dining, and entertainment, always staying connected to everything you need.`,
+        description: `Located in Unichira, Edapally, WAGMI offers unmatched convenience with easy access to Kochi's bustling areas like Thrikkakara, Kakkanad, and Edapally. You'll enjoy proximity to major transportation, dining, and entertainment, always staying connected to everything you need.`,
     },
     {
         icon: MdLightbulb,
         title: 'Flexible Solutions:',
-        description:
-            `We understand that every business has unique needs. That's why we offer a variety of flexible membership options like hot desks, dedicated desks, private cabins, and virtual offices. Our solutions are designed to grow and adapt as your business evolves, giving you room to scale easily.`,
+        description: `We understand that every business has unique needs. That's why we offer a variety of flexible membership options like hot desks, dedicated desks, private cabins, and virtual offices. Our solutions are designed to grow and adapt as your business evolves, giving you room to scale easily.`,
     },
     {
         icon: MdWifi,
         title: 'Modern Facilities:',
-        description:
-            `Our spaces are equipped with the latest technology and features to support your business needs. Enjoy high-speed internet, well-designed workspaces, a cozy cafeteria, and relaxing lounge areas—all tailored to keep you productive, focused, and comfortable throughout your day.`,
+        description: `Our spaces are equipped with the latest technology and features to support your business needs. Enjoy high-speed internet, well-designed workspaces, a cozy cafeteria, and relaxing lounge areas—all tailored to keep you productive, focused, and comfortable throughout your day.`,
     },
     {
         icon: FaHandshake,
         title: 'Exceptional Support:',
-        description:
-            `Our dedicated team is always on hand to ensure your experience at WAGMI is seamless. From administrative help to tech support, we're here to provide anything you need, ensuring you can focus on what truly matters: growing your business and achieving success.`,
+        description: `Our dedicated team is always on hand to ensure your experience at WAGMI is seamless. From administrative help to tech support, we're here to provide anything you need, ensuring you can focus on what truly matters: growing your business and achieving success.`,
     },
 ];
 
@@ -35,7 +33,13 @@ const KnowMore = () => {
             <div className="max-w-[1440px] mx-auto">
                 <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
                     {/* Left Column - Sticky on lg screens */}
-                    <div className="w-full lg:w-1/2 flex flex-col items-start lg:sticky lg:top-24 lg:self-start">
+                    <motion.div
+                        className="w-full lg:w-1/2 flex flex-col items-start lg:sticky lg:top-24 lg:self-start"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: '-100px' }}
+                        transition={{ duration: 0.5 }}
+                    >
                         <div className="relative w-full h-80 mb-4">
                             <Image
                                 src="/img/wagmi-poster.svg"
@@ -53,7 +57,7 @@ const KnowMore = () => {
                             PROFESSIONAL WORKSPACES DESIGNED FOR FOCUS, FLEXIBILITY, AND
                             PRODUCTIVITY.
                         </p>
-                    </div>
+                    </motion.div>
 
                     {/* Right Column - Stacking Cards on lg screens */}
                     <div className="w-full lg:w-1/2 flex flex-col gap-6 lg:gap-4">

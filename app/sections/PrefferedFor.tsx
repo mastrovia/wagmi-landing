@@ -1,5 +1,7 @@
+'use client';
 import React from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 import PreferredCard from '../components/PreferredCard';
 
 const PrefferedFor = () => {
@@ -7,16 +9,28 @@ const PrefferedFor = () => {
         <section className="bg-[#F3F4FB] py-16 md:py-24 px-6 lg:px-16 overflow-hidden">
             <div className="max-w-[1440px] mx-auto">
                 {/* Header */}
-                <div className="mb-12 md:mb-16">
+                <motion.div
+                    className="mb-12 md:mb-16"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: '-100px' }}
+                    transition={{ duration: 0.5 }}
+                >
                     <h2 className="text-3xl md:text-5xl font-extrabold text-dark mb-4 uppercase tracking-tight">
                         WHO IS THIS FOR
                     </h2>
                     <p className="text-gray-600 font-bold uppercase tracking-wide text-sm md:text-base">
                         WAGMI WORKSPACE IS DESIGNED FOR MODERN PROFESSIONALS ACROSS INDUSTRIES.
                     </p>
-                </div>
+                </motion.div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+                <motion.div
+                    className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: '-100px' }}
+                    transition={{ duration: 0.5, delay: 0.1 }}
+                >
                     {/* Left Column: Image Grid */}
                     <div className="grid grid-cols-2 gap-4 h-[500px] md:h-[600px]">
                         {/* Column 1: Stacked Images */}
@@ -65,7 +79,7 @@ const PrefferedFor = () => {
                             description="A well-connected workspace that enables focused teamwork."
                         />
                     </div>
-                </div>
+                </motion.div>
             </div>
         </section>
     );
