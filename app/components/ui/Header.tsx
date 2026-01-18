@@ -23,8 +23,8 @@ const Header = (props: Props) => {
             height: 0,
             transition: {
                 duration: 0.3,
-                ease: 'easeInOut',
-                when: 'afterChildren',
+                ease: [0.4, 0, 0.2, 1] as const,
+                when: 'afterChildren' as const,
             },
         },
         open: {
@@ -32,8 +32,8 @@ const Header = (props: Props) => {
             height: 'auto',
             transition: {
                 duration: 0.3,
-                ease: 'easeInOut',
-                when: 'beforeChildren',
+                ease: [0.4, 0, 0.2, 1] as const,
+                when: 'beforeChildren' as const,
                 staggerChildren: 0.05,
             },
         },
@@ -49,7 +49,7 @@ const Header = (props: Props) => {
             x: 0,
             transition: {
                 duration: 0.3,
-                ease: 'easeOut',
+                ease: [0, 0, 0.2, 1] as const,
             },
         },
     };
