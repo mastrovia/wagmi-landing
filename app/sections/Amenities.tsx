@@ -1,7 +1,7 @@
 'use client';
 import React, { useRef, useState, useEffect } from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, useMotionValue } from 'framer-motion';
 import { MdArrowOutward } from 'react-icons/md';
 
 type Amenity = {
@@ -56,6 +56,7 @@ const amenities: Amenity[] = [
 const Amenities = () => {
     const containerRef = useRef<HTMLDivElement>(null);
     const [dragConstraints, setDragConstraints] = useState({ left: 0, right: 0 });
+    const x = useMotionValue(0);
 
     useEffect(() => {
         const updateConstraints = () => {
@@ -73,6 +74,32 @@ const Amenities = () => {
         window.addEventListener('resize', updateConstraints);
         return () => window.removeEventListener('resize', updateConstraints);
     }, []);
+
+    useEffect(() => {
+        const container = containerRef.current;
+        if (!container) return;
+
+        const handleWheel = (e: WheelEvent) => {
+            const isHorizontal = Math.abs(e.deltaX) > Math.abs(e.deltaY);
+
+            if (e.shiftKey || isHorizontal) {
+                e.preventDefault();
+                const delta = e.shiftKey ? e.deltaY : e.deltaX;
+                const newX = x.get() - delta;
+                const clampedX = Math.max(
+                    dragConstraints.left,
+                    Math.min(dragConstraints.right, newX),
+                );
+                x.set(clampedX);
+            }
+        };
+
+        container.addEventListener('wheel', handleWheel, { passive: false });
+
+        return () => {
+            container.removeEventListener('wheel', handleWheel);
+        };
+    }, [dragConstraints, x]);
 
     return (
         <section id="amenities" className="px-12 py-16 md:py-24 overflow-hidden">
@@ -96,14 +123,14 @@ const Amenities = () => {
             <div className="overflow-hidden cursor-grab active:cursor-grabbing" ref={containerRef}>
                 <motion.div
                     className="pl-6 lg:pl-16 pb-8 flex gap-6 md:gap-8 pr-6 lg:pr-16"
+                    style={{ x }}
                     drag="x"
                     dragConstraints={dragConstraints}
                     dragElastic={0.1}
                     dragTransition={{ bounceStiffness: 300, bounceDamping: 30 }}
                     initial={{ opacity: 0, x: 50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    whileInView={{ opacity: 1, x: 0, transition: { duration: 0.5, delay: 0.1 } }}
                     viewport={{ once: true, margin: '-100px' }}
-                    transition={{ duration: 0.5, delay: 0.1 }}
                 >
                     {amenities.map((item) => (
                         <motion.div
