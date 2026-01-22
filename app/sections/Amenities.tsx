@@ -17,39 +17,39 @@ const amenities: Amenity[] = [
         title: 'High Speed Internet',
         description:
             'Fast, reliable connectivity built for video calls, cloud work, and uninterrupted productivity.',
-        image: 'https://placehold.co/600x800/png?text=Internet',
+        image: '/img/amenities/01.png',
     },
     {
         id: 2,
         title: 'Power Backup',
         description: '24/7 power backup ensures your work never stops, even during outages.',
-        image: 'https://placehold.co/600x800/png?text=Power',
+        image: '/img/amenities/02.png',
     },
     {
         id: 3,
         title: 'Printing Services',
         description:
             'High-quality printing and scanning facilities available for all your documentation needs.',
-        image: 'https://placehold.co/600x800/png?text=Print',
+        image: '/img/amenities/03.png',
     },
     {
         id: 4,
         title: 'Secure Parking',
         description: 'Ample parking space with 24/7 security surveillance for your peace of mind.',
-        image: 'https://placehold.co/600x800/png?text=Parking',
+        image: '/img/amenities/04.png',
     },
     {
         id: 5,
         title: 'Cafeteria',
         description:
             'A well-stocked cafeteria serving fresh snacks and beverages to keep you fueled.',
-        image: 'https://placehold.co/600x800/png?text=Cafe',
+        image: '/img/amenities/05.png',
     },
     {
         id: 6,
         title: 'Relaxation Zone',
         description: 'Comfortable lounge areas to unwind, relax, and recharge during your breaks.',
-        image: 'https://placehold.co/600x800/png?text=Relax',
+        image: '/img/amenities/06.png',
     },
 ];
 
