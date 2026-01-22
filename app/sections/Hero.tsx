@@ -87,15 +87,16 @@ const Hero = () => {
                         transition={{ duration: 0.5, delay: 0.1 }}
                     >
                         <Image
-                            src="https://placehold.co/800x400/png"
+                            src="/img/hero/Rectangle 57.png"
                             alt="Office Space Large"
                             fill
                             className="object-cover hover:scale-105 transition-transform duration-500"
                         />
                     </motion.div>
 
-                    {/* Middle Two Images */}
+                    {/* Bottom Row: Left Large, Right Stacked */}
                     <div className="grid grid-cols-2 gap-6 h-64 md:h-80">
+                        {/* Bottom Left: Single Large Image */}
                         <motion.div
                             className="relative w-full h-full rounded-sm overflow-hidden bg-gray-200"
                             initial={{ opacity: 0, scale: 0.95 }}
@@ -103,25 +104,42 @@ const Hero = () => {
                             transition={{ duration: 0.5, delay: 0.2 }}
                         >
                             <Image
-                                src="https://placehold.co/400x400/png"
-                                alt="Office Space Small 1"
+                                src="/img/hero/Rectangle 58.png"
+                                alt="Reception Area"
                                 fill
                                 className="object-cover hover:scale-105 transition-transform duration-500"
                             />
                         </motion.div>
-                        <motion.div
-                            className="relative w-full h-full rounded-sm overflow-hidden bg-gray-200"
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.5, delay: 0.3 }}
-                        >
-                            <Image
-                                src="https://placehold.co/400x400/png"
-                                alt="Office Space Small 2"
-                                fill
-                                className="object-cover hover:scale-105 transition-transform duration-500"
-                            />
-                        </motion.div>
+
+                        {/* Bottom Right: Two Stacked Images */}
+                        <div className="flex flex-col gap-6 h-full">
+                            <motion.div
+                                className="relative w-full h-full rounded-sm overflow-hidden bg-gray-200"
+                                initial={{ opacity: 0, scale: 0.95 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ duration: 0.5, delay: 0.3 }}
+                            >
+                                <Image
+                                    src="/img/hero/Rectangle 56.png"
+                                    alt="Office Room"
+                                    fill
+                                    className="object-cover hover:scale-105 transition-transform duration-500"
+                                />
+                            </motion.div>
+                            <motion.div
+                                className="relative w-full h-full rounded-sm overflow-hidden bg-gray-200"
+                                initial={{ opacity: 0, scale: 0.95 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ duration: 0.5, delay: 0.4 }}
+                            >
+                                <Image
+                                    src="/img/hero/Rectangle 55.png"
+                                    alt="Glass Cabins"
+                                    fill
+                                    className="object-cover hover:scale-105 transition-transform duration-500"
+                                />
+                            </motion.div>
+                        </div>
                     </div>
 
                     {/* Bottom Stats Row */}
@@ -131,9 +149,9 @@ const Hero = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.4, delay: 0.35 }}
                     >
-                        <StatsCard value="12+" label="Years Experience" />
-                        <StatsCard value="86+" label="Spaces Available" />
-                        <StatsCard value="12k+" label="Satisfied Clients" />
+                        <StatsCard value="12+" label="Companies" />
+                        <StatsCard value="5+" label="Spaces Available" />
+                        <StatsCard value="120+" label="Satisfied Clients" />
                     </motion.div>
                 </div>
             </div>
