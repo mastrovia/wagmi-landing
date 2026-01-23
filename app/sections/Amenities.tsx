@@ -135,7 +135,7 @@ const Amenities = () => {
                     {amenities.map((item) => (
                         <motion.div
                             key={item.id}
-                            className="relative min-w-[300px] md:min-w-[350px] h-[450px] md:h-[500px] rounded-lg overflow-hidden snap-start group cursor-pointer"
+                            className="relative min-w-[300px] md:min-w-[350px] h-[450px] md:h-[500px] overflow-hidden snap-start group cursor-pointer"
                             initial="rest"
                             whileHover="hover"
                             animate="rest"

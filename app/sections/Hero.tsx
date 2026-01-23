@@ -13,7 +13,7 @@ const Hero = () => {
             id="home"
             className="max-w-[1440px] mx-auto px-6 pt-4 pb-12 md:pb-20 lg:px-16 overflow-hidden"
         >
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-start">
                 {/* Left Column */}
                 <motion.div
                     className="flex flex-col items-start space-y-8"
@@ -78,10 +78,10 @@ const Hero = () => {
                 </motion.div>
 
                 {/* Right Column */}
-                <div className="flex flex-col gap-6">
+                <div className="flex flex-col gap-2">
                     {/* Top Wide Image */}
                     <motion.div
-                        className="relative w-full h-56 rounded-sm overflow-hidden bg-gray-200"
+                        className="relative w-full h-56 overflow-hidden bg-gray-200"
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.5, delay: 0.1 }}
@@ -95,10 +95,10 @@ const Hero = () => {
                     </motion.div>
 
                     {/* Bottom Row: Left Large, Right Stacked */}
-                    <div className="grid grid-cols-2 gap-6 h-64 md:h-80">
+                    <div className="grid grid-cols-2 gap-2 h-64 md:h-80">
                         {/* Bottom Left: Single Large Image */}
                         <motion.div
-                            className="relative w-full h-full rounded-sm overflow-hidden bg-gray-200"
+                            className="relative w-full h-full overflow-hidden bg-gray-200"
                             initial={{ opacity: 0, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.5, delay: 0.2 }}
@@ -112,9 +112,9 @@ const Hero = () => {
                         </motion.div>
 
                         {/* Bottom Right: Two Stacked Images */}
-                        <div className="flex flex-col gap-6 h-full">
+                        <div className="flex flex-col gap-2 h-full">
                             <motion.div
-                                className="relative w-full h-full rounded-sm overflow-hidden bg-gray-200"
+                                className="relative w-full h-full overflow-hidden bg-gray-200"
                                 initial={{ opacity: 0, scale: 0.95 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ duration: 0.5, delay: 0.3 }}
@@ -127,7 +127,7 @@ const Hero = () => {
                                 />
                             </motion.div>
                             <motion.div
-                                className="relative w-full h-full rounded-sm overflow-hidden bg-gray-200"
+                                className="relative w-full h-full overflow-hidden bg-gray-200"
                                 initial={{ opacity: 0, scale: 0.95 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ duration: 0.5, delay: 0.4 }}

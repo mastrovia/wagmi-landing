@@ -35,17 +35,17 @@ const PrefferedFor = () => {
                     <div className="grid grid-cols-2 gap-4 h-[500px] md:h-[600px]">
                         {/* Column 1: Stacked Images */}
                         <div className="flex flex-col gap-4 h-full">
-                            <div className="relative flex-1 rounded-lg overflow-hidden">
+                            <div className="relative flex-1 overflow-hidden">
                                 <Image
-                                    src="https://placehold.co/600x400/png?text=Freelancer"
+                                    src="/img/prefferedFor/01.png"
                                     alt="Freelancer working"
                                     fill
                                     className="object-cover hover:scale-105 transition-transform duration-500"
                                 />
                             </div>
-                            <div className="relative flex-1 rounded-lg overflow-hidden">
+                            <div className="relative flex-1 overflow-hidden">
                                 <Image
-                                    src="https://placehold.co/600x400/png?text=Meeting"
+                                    src="/img/prefferedFor/02.png"
                                     alt="Team meeting"
                                     fill
                                     className="object-cover hover:scale-105 transition-transform duration-500"
@@ -54,9 +54,9 @@ const PrefferedFor = () => {
                         </div>
 
                         {/* Column 2: Tall Image */}
-                        <div className="relative h-full rounded-lg overflow-hidden">
+                        <div className="relative h-full overflow-hidden">
                             <Image
-                                src="https://placehold.co/600x800/png?text=Collaboration"
+                                src="/img/prefferedFor/03.png"
                                 alt="Collaboration"
                                 fill
                                 className="object-cover hover:scale-105 transition-transform duration-500"
