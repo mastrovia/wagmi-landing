@@ -6,8 +6,8 @@ import PreferredCard from '../components/PreferredCard';
 
 const PrefferedFor = () => {
     return (
-        <section className="bg-[#F3F4FB] py-16 md:py-24 px-6 lg:px-16 overflow-hidden">
-            <div className="max-w-[1440px] mx-auto">
+        <section className="bg-[#F3F4FB] py-16 md:py-24 overflow-hidden">
+            <div className="max-w-[1440px] mx-auto px-6 lg:px-16 w-full">
                 {/* Header */}
                 <motion.div
                     className="mb-12 md:mb-16"

@@ -90,7 +90,7 @@ const Locations = () => {
             id="location"
             className="bg-linear-to-b from-[#EAEBF8] to-[#FFFFFF] py-16 md:py-24 relative"
         >
-            <div className="max-w-[1440px] mx-auto px-6 lg:px-16">
+            <div className="max-w-[1440px] mx-auto px-6 lg:px-16 w-full">
                 {/* Header Section */}
                 <motion.div
                     className="text-center max-w-3xl mx-auto mb-16"

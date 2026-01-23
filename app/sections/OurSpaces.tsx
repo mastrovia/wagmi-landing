@@ -21,25 +21,29 @@ const spaces: Space[] = [
     {
         id: 2,
         title: 'CO-WORKING DESK',
-        description: 'A shared workspace designed for collaboration, networking, and everyday productivity',
+        description:
+            'A shared workspace designed for collaboration, networking, and everyday productivity',
         image: '/img/stepper/02.png',
     },
     {
         id: 3,
         title: 'PRIVATE CABIN',
-        description: 'A dedicated, fully furnished private office for teams or individuals who need focus and privacy',
+        description:
+            'A dedicated, fully furnished private office for teams or individuals who need focus and privacy',
         image: '/img/stepper/03.png',
     },
     {
         id: 4,
         title: 'VIRTUAL OFFICE',
-        description: 'A professional business address and services without the need for a physical workspace.',
+        description:
+            'A professional business address and services without the need for a physical workspace.',
         image: '/img/stepper/04.png',
     },
     {
         id: 5,
         title: 'MEETING ROOMS',
-        description: 'Fully equipped meeting spaces ideal for client discussions, presentations, and team meetings',
+        description:
+            'Fully equipped meeting spaces ideal for client discussions, presentations, and team meetings',
         image: '/img/stepper/05.png',
     },
 ];
@@ -50,8 +54,8 @@ const OurSpaces = () => {
     const activeSpace = spaces.find((s) => s.id === activeId) || spaces[0];
 
     return (
-        <section id="spaces" className="bg-[#F3F4FB] py-16 md:py-24 px-6 lg:px-16 overflow-hidden">
-            <div className="max-w-[1440px] mx-auto">
+        <section id="spaces" className="bg-[#F3F4FB] py-16 md:py-24 overflow-hidden">
+            <div className="max-container">
                 <motion.h2
                     className="text-4xl md:text-5xl font-extrabold text-start text-dark mb-12 md:mb-16 uppercase tracking-tight"
                     initial={{ opacity: 0, y: 30 }}

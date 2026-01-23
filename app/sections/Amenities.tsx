@@ -22,7 +22,8 @@ const amenities: Amenity[] = [
     {
         id: 2,
         title: 'Printing Services',
-        description: 'Convenient access to essential printing and scanning services to support your everyday work needs.',
+        description:
+            'Convenient access to essential printing and scanning services to support your everyday work needs.',
         image: '/img/amenities/02.png',
     },
     {
@@ -35,20 +36,21 @@ const amenities: Amenity[] = [
     {
         id: 4,
         title: 'Secure Parking',
-        description: 'Safe, monitored parking facilities to ensure peace of mind throughout your workday.',
+        description:
+            'Safe, monitored parking facilities to ensure peace of mind throughout your workday.',
         image: '/img/amenities/04.png',
     },
     {
         id: 5,
         title: 'Refreshments',
-        description:
-            'Light refreshments available to keep you energized.',
+        description: 'Light refreshments available to keep you energized.',
         image: '/img/amenities/05.png',
     },
     {
         id: 6,
         title: 'Security Facilities',
-        description: 'Comprehensive security measures in place to ensure a safe and secure working environment.',
+        description:
+            'Comprehensive security measures in place to ensure a safe and secure working environment.',
         image: '/img/amenities/06.png',
     },
 ];
@@ -102,9 +104,9 @@ const Amenities = () => {
     }, [dragConstraints, x]);
 
     return (
-        <section id="amenities" className="px-6 md:px-12 py-16 md:py-24 overflow-hidden">
+        <section id="amenities" className="py-16 md:py-24 overflow-hidden">
             <motion.div
-                className="max-w-[1440px] mb-12"
+                className="max-w-[1440px] mx-auto px-6 lg:px-16 w-full mb-12"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-100px' }}

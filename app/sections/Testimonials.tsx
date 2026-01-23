@@ -109,7 +109,7 @@ const Testimonials = () => {
 
     return (
         <section className="bg-[#FFFFFF] py-16 md:py-24 overflow-hidden">
-            <div className="max-w-[1440px] mx-auto flex flex-col items-start px-6 lg:px-16">
+            <div className="max-w-[1440px] mx-auto px-6 lg:px-16 w-full flex flex-col items-start">
                 {/* Header */}
                 <div className="text-start mb-16 max-w-3xl">
                     <h2 className="text-3xl md:text-5xl font-extrabold text-dark mb-6 uppercase tracking-tight">
