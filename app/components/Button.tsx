@@ -33,7 +33,7 @@ const Button: React.FC<ButtonProps> = ({
             {...props}
         >
             <span className="mr-3 text-base font-semibold">{children}</span>
-            <div className="relative overflow-hidden w-8 h-8 bg-secondary rounded flex items-center justify-center">
+            <div className="relative overflow-hidden w-7 h-7 bg-secondary rounded flex items-center justify-center">
                 <GoArrowUpRight className="text-xl absolute transition-transform duration-300 group-hover:translate-x-full group-hover:-translate-y-full" />
                 <GoArrowUpRight className="text-xl absolute transition-transform duration-300 -translate-x-full translate-y-full group-hover:translate-x-0 group-hover:translate-y-0" />
             </div>

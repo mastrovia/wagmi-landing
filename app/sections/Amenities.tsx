@@ -21,34 +21,34 @@ const amenities: Amenity[] = [
     },
     {
         id: 2,
-        title: 'Power Backup',
-        description: '24/7 power backup ensures your work never stops, even during outages.',
+        title: 'Printing Services',
+        description: 'Convenient access to essential printing and scanning services to support your everyday work needs.',
         image: '/img/amenities/02.png',
     },
     {
         id: 3,
-        title: 'Printing Services',
+        title: 'Power Backup',
         description:
-            'High-quality printing and scanning facilities available for all your documentation needs.',
+            'Uninterrupted power supply to ensure continuous productivity throughout the workday.',
         image: '/img/amenities/03.png',
     },
     {
         id: 4,
         title: 'Secure Parking',
-        description: 'Ample parking space with 24/7 security surveillance for your peace of mind.',
+        description: 'Safe, monitored parking facilities to ensure peace of mind throughout your workday.',
         image: '/img/amenities/04.png',
     },
     {
         id: 5,
-        title: 'Cafeteria',
+        title: 'Refreshments',
         description:
-            'A well-stocked cafeteria serving fresh snacks and beverages to keep you fueled.',
+            'Light refreshments available to keep you energized.',
         image: '/img/amenities/05.png',
     },
     {
         id: 6,
-        title: 'Relaxation Zone',
-        description: 'Comfortable lounge areas to unwind, relax, and recharge during your breaks.',
+        title: 'Security Facilities',
+        description: 'Comprehensive security measures in place to ensure a safe and secure working environment.',
         image: '/img/amenities/06.png',
     },
 ];
@@ -102,7 +102,7 @@ const Amenities = () => {
     }, [dragConstraints, x]);
 
     return (
-        <section id="amenities" className="px-12 py-16 md:py-24 overflow-hidden">
+        <section id="amenities" className="px-6 md:px-12 py-16 md:py-24 overflow-hidden">
             <motion.div
                 className="max-w-[1440px] mb-12"
                 initial={{ opacity: 0, y: 30 }}
