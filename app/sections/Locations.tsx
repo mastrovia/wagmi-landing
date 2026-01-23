@@ -16,30 +16,30 @@ const contactInfo = [
     {
         icon: BiSupport,
         title: 'Chat to customer services',
-        subtitle: 'Lorem ipsum dolor sit',
-        link: 'support@helio.com',
-        href: 'mailto:support@helio.com',
+        subtitle: 'Need help? Reach out to us anytime.',
+        link: 'admin@wagmiworkspace.com',
+        href: 'mailto:admin@wagmiworkspace.com',
     },
     {
         icon: BiMessageSquareDetail,
         title: 'Chat to our sales',
-        subtitle: 'Lorem ipsum dolor sit',
-        link: 'sales@helio.com',
-        href: 'mailto:sales@helio.com',
+        subtitle: 'Interested in booking? Let’s talk.',
+        link: 'admin@wagmiworkspace.com',
+        href: 'mailto:admin@wagmiworkspace.com',
     },
     {
         icon: BiMap,
         title: 'Visit us',
-        subtitle: 'Lorem ipsum dolor sit',
-        link: '53 Albert Street, Brisbane',
+        subtitle: 'Drop by our main office.',
+        link: 'AN Square, Edappally, Kochi',
         href: '#',
     },
     {
         icon: BiPhoneCall,
         title: 'Call us',
-        subtitle: 'Lorem ipsum dolor sit',
-        link: '+61 (234) 5678',
-        href: 'tel:+612345678',
+        subtitle: 'Mon-Sat from 9am to 6pm.',
+        link: '+91 81299 88389',
+        href: 'tel:+918129988389',
     },
 ];
 
@@ -61,8 +61,7 @@ const locations = [
     {
         id: 3,
         city: 'Pathadipalam',
-        address:
-            '31/133A , EM Commercial Centre, Koonamthai, Edappally, Ernakulam, Kerala, 682024',
+        address: '31/133A , EM Commercial Centre, Koonamthai, Edappally, Ernakulam, Kerala, 682024',
         phone: '+91 8129988389',
         coords: [10.034117082818941, 76.31340045582007] as [number, number],
     },

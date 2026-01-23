@@ -75,9 +75,11 @@ const Footer = () => {
                                 <li className="flex items-start gap-3">
                                     <BiMap className="text-lg shrink-0 mt-0.5" />
                                     <span>
-                                        Business District,
+                                        AN Square, Unichira Thoppil Rd,
                                         <br />
-                                        Kochi, Kerala 682001
+                                        Marottichuvadu, Edappally,
+                                        <br />
+                                        Kochi, Kerala 682021
                                     </span>
                                 </li>
                                 <li className="flex items-center gap-3">
@@ -96,17 +98,22 @@ const Footer = () => {
                             <h3 className="text-lg font-bold text-white">Social</h3>
                             <ul className="flex flex-col gap-3 text-gray-400 text-sm">
                                 <li>
-                                    <a href="#" className="hover:text-primary transition-colors">
-                                        Twitter
+                                    <a
+                                        href="https://x.com/Wagmiworkspace"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="hover:text-primary transition-colors"
+                                    >
+                                        Twitter / X
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" className="hover:text-primary transition-colors">
-                                        Linkedin
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" className="hover:text-primary transition-colors">
+                                    <a
+                                        href="https://www.instagram.com/wagmiworkspace"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="hover:text-primary transition-colors"
+                                    >
                                         Instagram
                                     </a>
                                 </li>
