@@ -12,6 +12,9 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
     title: 'Wagmi - Premium Co-Working',
     description: 'A premium co-working hub for startups',
+    icons: {
+        icon: '/favicon.svg',
+    },
 };
 
 export default function RootLayout({

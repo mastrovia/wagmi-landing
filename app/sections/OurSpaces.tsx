@@ -15,32 +15,32 @@ const spaces: Space[] = [
         id: 1,
         title: 'DAILY PASS',
         description:
-            'Perfect for freelancers and travelers who need a productivity boost for the day.',
-        image: 'https://placehold.co/600x600/png',
+            'Flexible access to a productive co-working environment, perfect for a day of focused work.',
+        image: '/img/stepper/01.png',
     },
     {
         id: 2,
         title: 'CO-WORKING DESK',
-        description: 'A dedicated desk in a shared space, ideal for networking and collaboration.',
-        image: 'https://placehold.co/600x600/png',
+        description: 'A shared workspace designed for collaboration, networking, and everyday productivity',
+        image: '/img/stepper/02.png',
     },
     {
         id: 3,
         title: 'PRIVATE CABIN',
-        description: 'Quiet, enclosed spaces for teams needing focus and privacy.',
-        image: 'https://placehold.co/600x600/png',
+        description: 'A dedicated, fully furnished private office for teams or individuals who need focus and privacy',
+        image: '/img/stepper/03.png',
     },
     {
         id: 4,
         title: 'VIRTUAL OFFICE',
-        description: 'Professional business address and mail handling without the physical space.',
-        image: 'https://placehold.co/600x600/png',
+        description: 'A professional business address and services without the need for a physical workspace.',
+        image: '/img/stepper/04.png',
     },
     {
         id: 5,
         title: 'MEETING ROOMS',
-        description: 'Fully equipped rooms for your client meetings and team brainstorming.',
-        image: 'https://placehold.co/600x600/png',
+        description: 'Fully equipped meeting spaces ideal for client discussions, presentations, and team meetings',
+        image: '/img/stepper/05.png',
     },
 ];
 
