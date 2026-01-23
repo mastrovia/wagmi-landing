@@ -1,10 +1,16 @@
 'use client';
 import React from 'react';
-import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
 import { BiSupport, BiMessageSquareDetail, BiMap, BiPhoneCall } from 'react-icons/bi';
 import Button from '../components/Button';
 import { useModal } from '../context/ModalContext';
+
+// Dynamically import Map to avoid SSR issues
+const Map = dynamic(() => import('../components/Map'), {
+    loading: () => <div className="w-full h-full bg-gray-100 animate-pulse" />,
+    ssr: false,
+});
 
 const contactInfo = [
     {
@@ -40,16 +46,45 @@ const contactInfo = [
 const locations = [
     {
         id: 1,
-        city: 'Brisbane City',
-        address: '53 Albert Street, Brisbane.',
-        phone: '+61 234 5678',
-        coords: { x: '50%', y: '50%' },
+        city: 'Edappally',
+        address: 'Wagmi Coworking and Managed Office Space, Edappally, Kochi',
+        phone: '+91 8129988389',
+        coords: [10.029910609588125, 76.31987714232802] as [number, number],
+    },
+    {
+        id: 2,
+        city: 'HMT, Kalamassery',
+        address: 'Wagmi Workspace, Seaport - Airport Rd, HMT, Kalamassery, Kochi.',
+        phone: '+91 8129988389',
+        coords: [10.04483620546756, 76.33748702883598] as [number, number],
+    },
+    {
+        id: 3,
+        city: 'Pathadipalam',
+        address:
+            '31/133A , EM Commercial Centre, Koonamthai, Edappally, Ernakulam, Kerala, 682024',
+        phone: '+91 8129988389',
+        coords: [10.034117082818941, 76.31340045582007] as [number, number],
+    },
+    {
+        id: 4,
+        city: 'Thrikkakara',
+        address: 'Thrikkakara Heights, 1917, Ward No. 4, Thrikkakara, Kochi, Kerala Pin: 682021',
+        phone: '+91 8129988389',
+        coords: [10.034435049088826, 76.33335142265261] as [number, number],
+    },
+    {
+        id: 5,
+        city: 'Vyttila',
+        address: 'Eloor Kizhakkumbhagam, Kalamassery, Ernakulam, Kerala 683501',
+        phone: '+91 8129988389',
+        coords: [10.074248597727571, 76.30968859354948] as [number, number],
     },
 ];
 
 const Locations = () => {
-    const activeLocation = locations[0];
     const { openContactModal } = useModal();
+    const activeLocation = locations[0]; // Center map on the first location
 
     return (
         <section
@@ -106,30 +141,8 @@ const Locations = () => {
                         </div>
 
                         {/* Map Section */}
-                        <div className="relative w-full h-[400px] md:h-[500px] bg-gray-100 rounded-lg overflow-hidden shadow-sm">
-                            <iframe
-                                src="https://www.google.com/maps/d/embed?mid=1nBjJBuq3Jgv3WCu1P4b3jQzlygqx3zU&ehbc=2E312F"
-                                className="absolute inset-0 w-full h-full border-0"
-                                title="Wagmi Locations"
-                                loading="lazy"
-                            ></iframe>
-
-                            {/* Location Overlay Card */}
-                            {/* <div className="absolute bottom-6 left-6 md:bottom-12 md:left-12 bg-white/95 backdrop-blur-sm p-6 shadow-lg max-w-xs md:max-w-sm w-full rounded-lg border border-gray-100">
-                                <h3 className="text-xl font-bold text-dark mb-2">
-                                    {activeLocation.city}
-                                </h3>
-                                <p className="text-gray-600 text-sm mb-6">
-                                    {activeLocation.address}
-                                </p>
-
-                                <div className="flex items-center justify-between gap-4">
-                                    <Button size="sm">Contact</Button>
-                                    <div className="flex items-center gap-2 text-dark font-bold text-sm">
-                                        <BiPhoneCall /> {activeLocation.phone}
-                                    </div>
-                                </div>
-                            </div> */}
+                        <div className="relative w-full h-[400px] md:h-[500px] bg-gray-100 rounded-lg overflow-hidden shadow-sm z-0">
+                            <Map center={activeLocation.coords} zoom={12} locations={locations} />
                         </div>
                     </div>
                 </div>
