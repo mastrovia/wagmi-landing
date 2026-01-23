@@ -108,7 +108,7 @@ const Testimonials = () => {
     }, []);
 
     return (
-        <section className="bg-[#FFFFFF] py-16 md:py-24 overflow-hidden">
+        <section className="bg-[#FFFFFF] py-6 md:py-16 overflow-hidden">
             <div className="max-w-[1440px] mx-auto px-6 lg:px-16 w-full flex flex-col items-start">
                 {/* Header */}
                 <div className="text-start mb-16 max-w-3xl">

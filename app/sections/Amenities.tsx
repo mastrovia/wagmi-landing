@@ -104,7 +104,7 @@ const Amenities = () => {
     }, [dragConstraints, x]);
 
     return (
-        <section id="amenities" className="py-16 md:py-24 overflow-hidden">
+        <section id="amenities" className="py-6 md:py-16 overflow-hidden">
             <motion.div
                 className="max-w-[1440px] mx-auto px-6 lg:px-16 w-full mb-12"
                 initial={{ opacity: 0, y: 30 }}
@@ -124,7 +124,7 @@ const Amenities = () => {
             {/* Scrollable Container with Drag */}
             <div className="overflow-hidden cursor-grab active:cursor-grabbing" ref={containerRef}>
                 <motion.div
-                    className="pl-6 lg:pl-16 pb-8 flex gap-6 md:gap-8 pr-6 lg:pr-16"
+                    className="pl-6 lg:pl-24 pb-8 flex gap-6 md:gap-8 pr-6 lg:pr-24"
                     style={{ x }}
                     drag="x"
                     dragConstraints={dragConstraints}

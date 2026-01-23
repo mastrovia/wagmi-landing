@@ -88,7 +88,7 @@ const Locations = () => {
     return (
         <section
             id="location"
-            className="bg-linear-to-b from-[#EAEBF8] to-[#FFFFFF] py-16 md:py-24 relative"
+            className="bg-linear-to-b from-[#EAEBF8] to-[#FFFFFF] py-6 md:py-16 relative"
         >
             <div className="max-w-[1440px] mx-auto px-6 lg:px-16 w-full">
                 {/* Header Section */}

@@ -29,7 +29,7 @@ const features = [
 
 const KnowMore = () => {
     return (
-        <section className="py-16 md:py-24 px-6 lg:px-16">
+        <section className="py-6 md:py-16 px-6 lg:px-16">
             <div className="max-w-[1440px] mx-auto">
                 <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
                     {/* Left Column - Sticky on lg screens */}

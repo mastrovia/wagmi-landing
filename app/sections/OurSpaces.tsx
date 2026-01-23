@@ -54,7 +54,7 @@ const OurSpaces = () => {
     const activeSpace = spaces.find((s) => s.id === activeId) || spaces[0];
 
     return (
-        <section id="spaces" className="bg-[#F3F4FB] py-16 md:py-24 overflow-hidden">
+        <section id="spaces" className="bg-[#F3F4FB] py-6 md:py-16 overflow-hidden">
             <div className="max-container">
                 <motion.h2
                     className="text-4xl md:text-5xl font-extrabold text-start text-dark mb-12 md:mb-16 uppercase tracking-tight"
