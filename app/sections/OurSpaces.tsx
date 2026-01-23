@@ -55,7 +55,7 @@ const OurSpaces = () => {
 
     return (
         <section id="spaces" className="bg-[#F3F4FB] py-6 md:py-16 overflow-hidden">
-            <div className="max-container">
+            <div className="max-w-[1440px] mx-auto px-6 lg:px-16 w-full">
                 <motion.h2
                     className="text-4xl md:text-5xl font-extrabold text-start text-dark mb-12 md:mb-16 uppercase tracking-tight"
                     initial={{ opacity: 0, y: 30 }}
