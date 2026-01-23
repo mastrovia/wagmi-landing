@@ -70,7 +70,7 @@ const OurSpaces = () => {
                             <motion.button
                                 key={space.id}
                                 onClick={() => setActiveId(space.id)}
-                                className={`w-full text-left px-5 py-4 rounded-lg font-semibold text-lg transition-all duration-300 ${
+                                className={`w-full text-left px-5 py-4 font-semibold text-lg transition-all duration-300 ${
                                     activeId === space.id
                                         ? 'bg-primary text-white'
                                         : 'bg-transparent text-gray-800 hover:bg-gray-100'
@@ -86,7 +86,7 @@ const OurSpaces = () => {
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={activeSpace.id}
-                            className="relative w-full h-[350px] rounded-lg overflow-hidden"
+                            className="relative w-full h-[350px] overflow-hidden"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -20 }}
@@ -187,7 +187,7 @@ const OurSpaces = () => {
                     </div>
 
                     {/* Right Column: Image Preview */}
-                    <div className="flex-1 h-[450px] relative rounded-lg overflow-hidden group">
+                    <div className="flex-1 h-[450px] relative overflow-hidden group">
                         <AnimatePresence mode="wait">
                             <motion.div
                                 key={activeSpace.id}

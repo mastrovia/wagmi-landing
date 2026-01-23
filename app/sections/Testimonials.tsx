@@ -136,7 +136,7 @@ const Testimonials = () => {
                             <motion.div
                                 key={item.id}
                                 data-testimonial-card
-                                className={`shrink-0 w-[300px] md:w-[450px] bg-white p-8 md:p-12 border transition-all duration-300 snap-center rounded-sm flex flex-col justify-between ${
+                                className={`shrink-0 w-[300px] md:w-[450px] bg-white p-8 md:p-12 border transition-all duration-300 snap-center flex flex-col justify-between ${
                                     isActive
                                         ? 'border-primary shadow-xl scale-110 z-10'
                                         : 'border-blue-100/50 shadow-sm opacity-60 scale-95'
