@@ -124,7 +124,7 @@ const Amenities = () => {
             {/* Scrollable Container with Drag */}
             <div className="overflow-hidden cursor-grab active:cursor-grabbing" ref={containerRef}>
                 <motion.div
-                    className="pl-6 lg:pl-24 pb-8 flex gap-6 md:gap-8 pr-6 lg:pr-24"
+                    className="pl-6 lg:pl-24 pb-8 flex gap-6 md:gap-8 pr-6 lg:pr-2"
                     style={{ x }}
                     drag="x"
                     dragConstraints={dragConstraints}
