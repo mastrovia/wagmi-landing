@@ -106,18 +106,16 @@ const Locations = () => {
                         </div>
 
                         {/* Map Section */}
-                        <div className="relative w-full h-[400px] md:h-[500px] bg-gray-100">
-                            <div className="absolute inset-0 bg-blue-50/50">
-                                <Image
-                                    src="https://placehold.co/1200x600/png?text=Map+View+Placeholder"
-                                    alt="Map Location"
-                                    fill
-                                    className="object-cover opacity-80 mix-blend-multiply"
-                                />
-                            </div>
+                        <div className="relative w-full h-[400px] md:h-[500px] bg-gray-100 rounded-lg overflow-hidden shadow-sm">
+                            <iframe
+                                src="https://www.google.com/maps/d/embed?mid=1nBjJBuq3Jgv3WCu1P4b3jQzlygqx3zU&ehbc=2E312F"
+                                className="absolute inset-0 w-full h-full border-0"
+                                title="Wagmi Locations"
+                                loading="lazy"
+                            ></iframe>
 
                             {/* Location Overlay Card */}
-                            <div className="absolute bottom-6 left-6 md:bottom-12 md:left-12 bg-white p-6 shadow-lg max-w-xs md:max-w-sm w-full">
+                            {/* <div className="absolute bottom-6 left-6 md:bottom-12 md:left-12 bg-white/95 backdrop-blur-sm p-6 shadow-lg max-w-xs md:max-w-sm w-full rounded-lg border border-gray-100">
                                 <h3 className="text-xl font-bold text-dark mb-2">
                                     {activeLocation.city}
                                 </h3>
@@ -126,22 +124,12 @@ const Locations = () => {
                                 </p>
 
                                 <div className="flex items-center justify-between gap-4">
-                                    <Button>Contact</Button>
+                                    <Button size="sm">Contact</Button>
                                     <div className="flex items-center gap-2 text-dark font-bold text-sm">
                                         <BiPhoneCall /> {activeLocation.phone}
                                     </div>
                                 </div>
-                            </div>
-
-                            {/* Map Markers (Simulated) */}
-                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                                <div className="relative">
-                                    <div className="w-12 h-12 bg-primary/20 animate-ping absolute inset-0"></div>
-                                    <div className="w-12 h-12 bg-dark text-white flex items-center justify-center relative shadow-xl border-4 border-white">
-                                        <BiMap className="text-2xl" />
-                                    </div>
-                                </div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>
