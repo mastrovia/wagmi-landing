@@ -88,9 +88,10 @@ const Locations = () => {
     return (
         <section
             id="location"
-            className="bg-linear-to-b from-[#EAEBF8] to-[#FFFFFF] py-6 md:py-16 relative"
+            className="bg-[url('/img/CTASection.png')] bg-cover bg-center py-16 md:py-24 relative"
         >
-            <div className="max-w-[1440px] mx-auto px-6 lg:px-16 w-full">
+            {/* <div className="absolute inset-0 bg-white/90" /> Removed overlay as requested */}
+            <div className="max-w-[1440px] mx-auto px-6 lg:px-16 w-full relative z-10">
                 {/* Header Section */}
                 <motion.div
                     className="text-center max-w-3xl mx-auto mb-16"
@@ -99,7 +100,7 @@ const Locations = () => {
                     viewport={{ once: true, margin: '-100px' }}
                     transition={{ duration: 0.5 }}
                 >
-                    <h2 className="text-3xl md:text-5xl font-extrabold text-dark mb-6 leading-tight">
+                    <h2 className="text-2xl md:text-4xl font-extrabold text-dark mb-6 leading-tight">
                         Visit Wagmi Workspace and Experience a Better Work Environment
                     </h2>
                     <p className="text-gray-600 font-medium text-base md:text-lg mb-8 max-w-xl mx-auto">

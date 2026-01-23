@@ -134,10 +134,12 @@ const Amenities = () => {
                     whileInView={{ opacity: 1, x: 0, transition: { duration: 0.5, delay: 0.1 } }}
                     viewport={{ once: true, margin: '-100px' }}
                 >
-                    {amenities.map((item) => (
+                    {amenities.map((item, index) => (
                         <motion.div
                             key={item.id}
-                            className="relative min-w-[300px] md:min-w-[350px] h-[450px] md:h-[500px] overflow-hidden snap-start group cursor-pointer"
+                            className={`relative min-w-[300px] md:min-w-[350px] h-[450px] md:h-[500px] overflow-hidden snap-start group cursor-pointer ${
+                                index % 2 !== 0 ? 'md:mt-12' : ''
+                            }`}
                             initial="rest"
                             whileHover="hover"
                             animate="rest"
@@ -163,10 +165,10 @@ const Amenities = () => {
                                     transition={{ duration: 0.3 }}
                                 >
                                     <div className="flex items-center justify-between mb-2">
-                                        <h3 className="text-white text-2xl font-bold">
+                                        <h3 className="text-white text-xl font-bold">
                                             {item.title}
                                         </h3>
-                                        <MdArrowOutward className="text-white text-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0" />
+                                        <MdArrowOutward className="text-white text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0" />
                                     </div>
 
                                     <motion.div
@@ -177,7 +179,7 @@ const Amenities = () => {
                                         transition={{ duration: 0.3 }}
                                         className="overflow-hidden"
                                     >
-                                        <p className="text-gray-200 text-sm md:text-base leading-relaxed">
+                                        <p className="text-gray-200 text-sm md:text-base">
                                             {item.description}
                                         </p>
                                     </motion.div>
