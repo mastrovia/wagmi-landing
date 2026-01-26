@@ -45,7 +45,7 @@ const PrefferedFor = () => {
                             </div>
                             <div className="relative flex-1 overflow-hidden">
                                 <Image
-                                    src="/img/prefferedFor/01.jpg"
+                                    src="/img/prefferedFor/02.jpg"
                                     alt="Team meeting"
                                     fill
                                     className="object-cover hover:scale-105 transition-transform duration-500"
