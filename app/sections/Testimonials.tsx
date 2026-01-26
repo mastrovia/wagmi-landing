@@ -87,6 +87,31 @@ const Testimonials = () => {
     };
 
     useEffect(() => {
+        const interval = setInterval(() => {
+            if (!scrollRef.current) return;
+
+            const container = scrollRef.current;
+            const nextIndex = (activeIndex + 1) % testimonials.length;
+            const cards = container.querySelectorAll('[data-testimonial-card]');
+            const nextCard = cards[nextIndex] as HTMLElement;
+
+            if (nextCard) {
+                const containerWidth = container.offsetWidth;
+                const cardWidth = nextCard.offsetWidth;
+                // Calculate position to center the card
+                const scrollToX = nextCard.offsetLeft - containerWidth / 2 + cardWidth / 2;
+
+                container.scrollTo({
+                    left: scrollToX,
+                    behavior: 'smooth',
+                });
+            }
+        }, 5000); // Auto scroll every 5 seconds
+
+        return () => clearInterval(interval);
+    }, [activeIndex]);
+
+    useEffect(() => {
         // Initial calculation
         const timer = setTimeout(() => {
             handleScroll();
