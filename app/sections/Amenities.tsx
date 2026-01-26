@@ -1,7 +1,7 @@
 'use client';
 import React, { useRef, useState, useEffect } from 'react';
 import Image from 'next/image';
-import { motion, useMotionValue } from 'framer-motion';
+import { motion, useMotionValue, animate } from 'framer-motion';
 import { MdArrowOutward } from 'react-icons/md';
 
 type Amenity = {
@@ -102,7 +102,28 @@ const Amenities = () => {
             container.removeEventListener('wheel', handleWheel);
         };
     }, [dragConstraints, x]);
+    useEffect(() => {
+        const interval = setInterval(() => {
+            const currentX = x.get();
+            const cardWidth = window.innerWidth >= 768 ? 350 : 300;
+            const gap = window.innerWidth >= 768 ? 32 : 24;
+            const step = cardWidth + gap;
 
+            let newX = currentX - step;
+
+            // If we've reached the end, loop back to the start
+            if (newX < dragConstraints.left) {
+                newX = 0;
+            }
+
+            animate(x, newX, {
+                duration: 0.8,
+                ease: 'easeInOut',
+            });
+        }, 5000); // Scroll every 5 seconds
+
+        return () => clearInterval(interval);
+    }, [dragConstraints, x]);
     return (
         <section id="amenities" className="py-6 md:py-16 overflow-hidden">
             <motion.div
