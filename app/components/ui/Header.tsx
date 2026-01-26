@@ -86,9 +86,29 @@ const Header = () => {
                             key={link.name}
                             href={link.href}
                             onClick={(e) => handleNavClick(e, link.href)}
-                            className="text-gray-800 hover:text-blue-600 font-semibold text-sm tracking-wide transition-colors cursor-pointer"
+                            className="group relative overflow-hidden text-gray-800 font-semibold text-sm tracking-wide cursor-pointer"
                         >
-                            {link.name}
+                            <motion.div initial="initial" whileHover="hover" className="relative">
+                                <motion.div
+                                    variants={{
+                                        initial: { y: 0 },
+                                        hover: { y: '-100%' },
+                                    }}
+                                    transition={{ duration: 0.3, ease: [0.33, 1, 0.68, 1] }}
+                                >
+                                    {link.name}
+                                </motion.div>
+                                <motion.div
+                                    className="absolute inset-0"
+                                    variants={{
+                                        initial: { y: '100%' },
+                                        hover: { y: 0 },
+                                    }}
+                                    transition={{ duration: 0.3, ease: [0.33, 1, 0.68, 1] }}
+                                >
+                                    <span className="text-blue-600">{link.name}</span>
+                                </motion.div>
+                            </motion.div>
                         </a>
                     ))}
                 </nav>
