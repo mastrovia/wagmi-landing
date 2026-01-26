@@ -116,14 +116,16 @@ const Locations = () => {
                 </motion.div>
 
                 {/* Contact Grid & Map Container */}
-                <div className="bg-white border border-gray-100 p-6 md:p-8">
-                    <div className="border border-gray-100 overflow-hidden">
+                <div className="bg-white p-6 md:p-8">
+                    <div className="overflow-hidden">
                         {/* Contact Info Grid */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-y md:divide-y-0 md:divide-x border-b border-gray-100">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
                             {contactInfo.map((item, index) => (
                                 <div
                                     key={index}
-                                    className="p-8 md:p-10 flex flex-col items-center text-center hover:bg-gray-50 transition-colors"
+                                    className={`p-8 md:p-10 flex flex-col items-center text-center hover:bg-gray-50 transition-colors ${
+                                        item.title === 'Call us' ? 'flex' : 'hidden md:flex'
+                                    }`}
                                 >
                                     <div className="w-12 h-12 border border-primary/20 bg-primary/5 flex items-center justify-center text-primary mb-6">
                                         <item.icon className="text-2xl" />
