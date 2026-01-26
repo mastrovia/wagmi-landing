@@ -16,21 +16,21 @@ const spaces: Space[] = [
         title: 'DAILY PASS',
         description:
             'Flexible access to a productive co-working environment, perfect for a day of focused work.',
-        image: '/img/stepper/01.png',
+        image: '/img/stepper/05.png',
     },
     {
         id: 2,
-        title: 'CO-WORKING DESK',
-        description:
-            'A shared workspace designed for collaboration, networking, and everyday productivity',
-        image: '/img/stepper/02.png',
-    },
-    {
-        id: 3,
         title: 'PRIVATE CABIN',
         description:
             'A dedicated, fully furnished private office for teams or individuals who need focus and privacy',
         image: '/img/stepper/03.png',
+    },
+    {
+        id: 3,
+        title: 'CO-WORKING DESK',
+        description:
+            'A shared workspace designed for collaboration, networking, and everyday productivity',
+        image: '/img/stepper/02.png',
     },
     {
         id: 4,
@@ -44,12 +44,20 @@ const spaces: Space[] = [
         title: 'MEETING ROOMS',
         description:
             'Fully equipped meeting spaces ideal for client discussions, presentations, and team meetings',
-        image: '/img/stepper/05.png',
+        image: '/img/stepper/05.jpeg',
     },
 ];
 
 const OurSpaces = () => {
     const [activeId, setActiveId] = useState<number>(1);
+
+    React.useEffect(() => {
+        const interval = setInterval(() => {
+            setActiveId((prev) => (prev % spaces.length) + 1);
+        }, 5000); // Change every 5 seconds
+
+        return () => clearInterval(interval);
+    }, [activeId]); // Reset timer when activeId changes (including manual clicks)
 
     const activeSpace = spaces.find((s) => s.id === activeId) || spaces[0];
 
@@ -134,7 +142,7 @@ const OurSpaces = () => {
                                     height: `${100 / spaces.length}%`,
                                     top: `${((activeId - 1) / spaces.length) * 100}%`,
                                 }}
-                                transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                                transition={{ type: 'tween', stiffness: 200, damping: 20 }}
                             />
                         </div>
 
@@ -145,7 +153,7 @@ const OurSpaces = () => {
                             animate={{
                                 top: `${(activeId / spaces.length) * 100}%`,
                             }}
-                            transition={{ type: 'tween', stiffness: 300, damping: 40 }}
+                            transition={{ type: 'spring', stiffness: 100, damping: 20 }}
                             style={{
                                 transform: 'translateY(-100%)',
                             }}
@@ -169,8 +177,8 @@ const OurSpaces = () => {
                                                 initial={false}
                                                 transition={{
                                                     type: 'spring',
-                                                    stiffness: 400,
-                                                    damping: 35,
+                                                    stiffness: 120,
+                                                    damping: 20,
                                                 }}
                                             />
                                         )}

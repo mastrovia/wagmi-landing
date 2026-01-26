@@ -87,7 +87,7 @@ const Hero = () => {
                         transition={{ duration: 0.5, delay: 0.1 }}
                     >
                         <Image
-                            src="/img/hero/Rectangle 57.png"
+                            src="/img/hero/02.jpg"
                             alt="Office Space Large"
                             fill
                             className="object-cover hover:scale-105 transition-transform duration-500"
@@ -104,7 +104,7 @@ const Hero = () => {
                             transition={{ duration: 0.5, delay: 0.2 }}
                         >
                             <Image
-                                src="/img/hero/Rectangle 58.png"
+                                src="/img/hero/01.jpg"
                                 alt="Reception Area"
                                 fill
                                 className="object-cover hover:scale-105 transition-transform duration-500"
@@ -120,7 +120,7 @@ const Hero = () => {
                                 transition={{ duration: 0.5, delay: 0.3 }}
                             >
                                 <Image
-                                    src="/img/hero/Rectangle 56.png"
+                                    src="/img/hero/04.png"
                                     alt="Office Room"
                                     fill
                                     className="object-cover hover:scale-105 transition-transform duration-500"
@@ -133,7 +133,7 @@ const Hero = () => {
                                 transition={{ duration: 0.5, delay: 0.4 }}
                             >
                                 <Image
-                                    src="/img/hero/Rectangle 55.png"
+                                    src="/img/hero/03.png"
                                     alt="Glass Cabins"
                                     fill
                                     className="object-cover hover:scale-105 transition-transform duration-500"
