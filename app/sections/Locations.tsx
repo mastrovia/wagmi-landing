@@ -6,8 +6,10 @@ import { BiSupport, BiMessageSquareDetail, BiMap, BiPhoneCall } from 'react-icon
 import Button from '../components/Button';
 import { useModal } from '../context/ModalContext';
 
+import type { MapProps } from '../components/Map';
+
 // Dynamically import Map to avoid SSR issues
-const Map = dynamic(() => import('../components/Map'), {
+const Map = dynamic<MapProps>(() => import('../components/Map'), {
     loading: () => <div className="w-full h-full bg-gray-100 animate-pulse" />,
     ssr: false,
 });
@@ -74,7 +76,7 @@ const locations = [
     },
     {
         id: 5,
-        city: 'Vyttila',
+        city: 'Kalamassery',
         address: 'Eloor Kizhakkumbhagam, Kalamassery, Ernakulam, Kerala 683501',
         phone: '+91 8129988389',
         coords: [10.074248597727571, 76.30968859354948] as [number, number],

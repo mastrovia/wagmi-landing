@@ -4,7 +4,7 @@ import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 // import { useEffect } from 'react'; // Removed unused import
 
-type MapProps = {
+export type MapProps = {
     center: [number, number];
     zoom: number;
     locations: {
@@ -16,30 +16,34 @@ type MapProps = {
     }[];
 };
 
-const customIcon = new L.Icon({
-    iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
-    iconRetinaUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon-2x.png',
-    shadowUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png',
-    iconSize: [25, 41],
-    iconAnchor: [12, 41],
-    popupAnchor: [1, -34],
-    shadowSize: [41, 41],
-});
-
 const Map = ({ center, zoom, locations }: MapProps) => {
+    // Create a custom primary-colored SVG marker
+    const primaryIcon = L.divIcon({
+        html: `
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 21C16.5 17.5 19 14.1667 19 11C19 7.13401 15.866 4 12 4C8.13401 4 5 7.13401 5 11C5 14.1667 7.5 17.5 12 21Z" fill="#6676d2" stroke="white" stroke-width="1.5"/>
+                <circle cx="12" cy="11" r="2.5" fill="white"/>
+            </svg>
+        `,
+        className: 'custom-map-marker',
+        iconSize: [40, 40],
+        iconAnchor: [20, 40],
+        popupAnchor: [0, -40],
+    });
+
     return (
         <MapContainer
             center={center}
             zoom={zoom}
-            scrollWheelZoom={false}
+            scrollWheelZoom={true} // Enabled scroll/pinch zoom
             style={{ height: '100%', width: '100%' }}
         >
             <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+                url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
             />
             {locations.map((loc) => (
-                <Marker key={loc.id} position={loc.coords} icon={customIcon}>
+                <Marker key={loc.id} position={loc.coords} icon={primaryIcon}>
                     <Popup>
                         <div className="text-sm">
                             <strong className="block text-dark mb-1">{loc.city}</strong>
