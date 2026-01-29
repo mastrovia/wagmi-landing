@@ -77,6 +77,8 @@ const Amenities = () => {
     useEffect(() => {
         if (contentWidth === 0 || isPaused || isInteracting) return;
 
+        const speed = 40; // Higher is slower
+
         // Calculate target based on current position to avoid jumps when resuming
         const currentX = x.get();
         const targetX = currentX - contentWidth;
