@@ -1,7 +1,7 @@
 'use client';
 import React, { useRef, useState, useEffect } from 'react';
 import Image from 'next/image';
-import { motion, useMotionValue, animate } from 'framer-motion';
+import { motion, useMotionValue, animate, AnimationPlaybackControls } from 'framer-motion';
 import { MdArrowOutward } from 'react-icons/md';
 
 type Amenity = {
@@ -56,74 +56,88 @@ const amenities: Amenity[] = [
 ];
 
 const Amenities = () => {
-    const containerRef = useRef<HTMLDivElement>(null);
-    const [dragConstraints, setDragConstraints] = useState({ left: 0, right: 0 });
+    const [isPaused, setIsPaused] = useState(false);
+    const [isInteracting, setIsInteracting] = useState(false);
     const x = useMotionValue(0);
+    const containerRef = useRef<HTMLDivElement>(null);
+    const [contentWidth, setContentWidth] = useState(0);
+    const resumeTimerRef = useRef<NodeJS.Timeout>(null);
+
+    // Triple amenities for seamless loop in both directions
+    const infiniteAmenities = [...amenities, ...amenities, ...amenities];
 
     useEffect(() => {
-        const updateConstraints = () => {
-            if (containerRef.current) {
-                const scrollWidth = containerRef.current.scrollWidth;
-                const clientWidth = containerRef.current.clientWidth;
-                setDragConstraints({
-                    left: -(scrollWidth - clientWidth),
-                    right: 0,
-                });
+        if (containerRef.current) {
+            const width = containerRef.current.scrollWidth / 3;
+            setContentWidth(width);
+            x.set(-width); // Start in the middle set
+        }
+    }, [x]);
+
+    useEffect(() => {
+        if (contentWidth === 0 || isPaused || isInteracting) return;
+
+        // Calculate target based on current position to avoid jumps when resuming
+        const currentX = x.get();
+        const targetX = currentX - contentWidth;
+
+        const controls: AnimationPlaybackControls = animate(x, targetX, {
+            ease: 'linear',
+            duration: speed,
+            repeat: Infinity,
+            repeatType: 'loop',
+            onUpdate: (latest) => {
+                // Handle complex wrapping inside the animation loop for extra smoothness
+                if (latest <= -2 * contentWidth) {
+                    x.set(latest + contentWidth);
+                }
+            },
+        });
+
+        return () => controls.stop();
+    }, [contentWidth, isPaused, isInteracting, x]);
+
+    // Handle manual wrapping (for drag/scroll)
+    useEffect(() => {
+        const unsubscribe = x.on('change', (latest) => {
+            if (contentWidth === 0) return;
+            if (latest <= -2 * contentWidth) {
+                x.set(latest + contentWidth);
+            } else if (latest >= 0) {
+                x.set(latest - contentWidth);
             }
-        };
+        });
+        return () => unsubscribe();
+    }, [contentWidth, x]);
 
-        updateConstraints();
-        window.addEventListener('resize', updateConstraints);
-        return () => window.removeEventListener('resize', updateConstraints);
-    }, []);
+    // Resume logic after interaction
+    const startResumeTimer = () => {
+        if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+        resumeTimerRef.current = setTimeout(() => {
+            setIsInteracting(false);
+        }, 2000); // Resume after 2 seconds of no interaction
+    };
 
+    // Wheel support
     useEffect(() => {
         const container = containerRef.current;
         if (!container) return;
 
         const handleWheel = (e: WheelEvent) => {
             const isHorizontal = Math.abs(e.deltaX) > Math.abs(e.deltaY);
-
             if (e.shiftKey || isHorizontal) {
                 e.preventDefault();
+                setIsInteracting(true);
                 const delta = e.shiftKey ? e.deltaY : e.deltaX;
-                const newX = x.get() - delta;
-                const clampedX = Math.max(
-                    dragConstraints.left,
-                    Math.min(dragConstraints.right, newX),
-                );
-                x.set(clampedX);
+                x.set(x.get() - delta);
+                startResumeTimer();
             }
         };
 
         container.addEventListener('wheel', handleWheel, { passive: false });
+        return () => container.removeEventListener('wheel', handleWheel);
+    }, [x]);
 
-        return () => {
-            container.removeEventListener('wheel', handleWheel);
-        };
-    }, [dragConstraints, x]);
-    useEffect(() => {
-        const interval = setInterval(() => {
-            const currentX = x.get();
-            const cardWidth = window.innerWidth >= 768 ? 350 : 300;
-            const gap = window.innerWidth >= 768 ? 32 : 24;
-            const step = cardWidth + gap;
-
-            let newX = currentX - step;
-
-            // If we've reached the end, loop back to the start
-            if (newX < dragConstraints.left) {
-                newX = 0;
-            }
-
-            animate(x, newX, {
-                duration: 0.8,
-                ease: 'easeInOut',
-            });
-        }, 5000); // Scroll every 5 seconds
-
-        return () => clearInterval(interval);
-    }, [dragConstraints, x]);
     return (
         <section id="amenities" className="py-6 md:py-16 overflow-hidden">
             <motion.div
@@ -142,24 +156,27 @@ const Amenities = () => {
                 </p>
             </motion.div>
 
-            {/* Scrollable Container with Drag */}
-            <div className="overflow-hidden cursor-grab active:cursor-grabbing" ref={containerRef}>
+            {/* Marquee Container */}
+            <div
+                className="relative overflow-hidden cursor-grab active:cursor-grabbing"
+                onMouseEnter={() => setIsPaused(true)}
+                onMouseLeave={() => setIsPaused(false)}
+            >
                 <motion.div
-                    className="pl-6 lg:pl-24 pb-8 flex gap-6 md:gap-8 pr-6 lg:pr-2"
+                    ref={containerRef}
+                    className="flex gap-6 md:gap-8 w-max pb-8 pl-6 lg:pl-24"
                     style={{ x }}
                     drag="x"
-                    dragConstraints={dragConstraints}
-                    dragElastic={0.1}
-                    dragTransition={{ bounceStiffness: 300, bounceDamping: 30 }}
-                    initial={{ opacity: 0, x: 50 }}
-                    whileInView={{ opacity: 1, x: 0, transition: { duration: 0.5, delay: 0.1 } }}
-                    viewport={{ once: true, margin: '-100px' }}
+                    onDragStart={() => setIsInteracting(true)}
+                    onDragEnd={() => startResumeTimer()}
+                    dragElastic={0.05}
+                    dragConstraints={{ left: -10000, right: 10000 }} // Effectively infinite constraints handled by wrap logic
                 >
-                    {amenities.map((item, index) => (
+                    {infiniteAmenities.map((item, index) => (
                         <motion.div
-                            key={item.id}
-                            className={`relative min-w-[300px] md:min-w-[350px] h-[450px] md:h-[500px] overflow-hidden snap-start group cursor-pointer ${
-                                index % 2 !== 0 ? 'md:mt-12' : ''
+                            key={`${item.id}-${index}`}
+                            className={`relative min-w-[300px] md:min-w-[350px] h-[450px] md:h-[500px] overflow-hidden group cursor-pointer ${
+                                (index % amenities.length) % 2 !== 0 ? 'md:mt-12' : ''
                             }`}
                             initial="rest"
                             whileHover="hover"
@@ -210,17 +227,6 @@ const Amenities = () => {
                     ))}
                 </motion.div>
             </div>
-
-            {/* Scrollbar hide utility */}
-            <style jsx global>{`
-                .hide-scrollbar::-webkit-scrollbar {
-                    display: none;
-                }
-                .hide-scrollbar {
-                    -ms-overflow-style: none;
-                    scrollbar-width: none;
-                }
-            `}</style>
         </section>
     );
 };
