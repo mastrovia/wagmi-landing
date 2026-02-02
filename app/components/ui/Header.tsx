@@ -63,7 +63,7 @@ const Header = () => {
     };
 
     return (
-        <header className="w-full bg-[#F3F4FB] sticky top-0 z-50">
+        <header className="hidden md:block w-full bg-[#F3F4FB] sticky top-0 z-50">
             <div className="max-w-[1440px] mx-auto px-6 lg:px-16 w-full h-full py-4 flex items-center justify-between">
                 {/* Logo */}
                 <div className="flex-shrink-0">

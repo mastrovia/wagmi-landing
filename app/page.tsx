@@ -1,5 +1,6 @@
 import Header from './components/ui/Header';
 import Hero from './sections/Hero';
+import HeroMobile from './sections/HeroMobile';
 import OurSpaces from './sections/OurSpaces';
 import Amenities from './sections/Amenities';
 import PrefferedFor from './sections/PrefferedFor';
@@ -13,6 +14,7 @@ const Home = () => {
         <div className="bg-[#F3F4FB] min-h-screen">
             <Header />
             <main>
+                <HeroMobile />
                 <Hero />
                 <OurSpaces />
                 <Amenities />
