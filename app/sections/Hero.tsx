@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Button from '../components/Button';
 import StatsCard from '../components/StatsCard';
 import { useModal } from '../context/ModalContext';
+import HeroCarousel from '../components/HeroCarousel';
 
 const Hero = () => {
     const { openContactModal } = useModal();
@@ -78,69 +79,15 @@ const Hero = () => {
                 </motion.div>
 
                 {/* Right Column */}
-                <div className="flex flex-col gap-2">
-                    {/* Top Wide Image */}
+                <div className="flex flex-col gap-6 lg:mt-0 mt-8">
+                    {/* Carousel Section */}
                     <motion.div
-                        className="relative w-full h-56 overflow-hidden bg-gray-200"
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.5, delay: 0.1 }}
                     >
-                        <Image
-                            src="/img/hero/02.jpg"
-                            alt="Office Space Large"
-                            fill
-                            className="object-cover hover:scale-105 transition-transform duration-500"
-                        />
+                        <HeroCarousel />
                     </motion.div>
-
-                    {/* Bottom Row: Left Large, Right Stacked */}
-                    <div className="grid grid-cols-2 gap-2 h-64 md:h-80">
-                        {/* Bottom Left: Single Large Image */}
-                        <motion.div
-                            className="relative w-full h-full overflow-hidden bg-gray-200"
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.5, delay: 0.2 }}
-                        >
-                            <Image
-                                src="/img/hero/01.jpg"
-                                alt="Reception Area"
-                                fill
-                                className="object-cover hover:scale-105 transition-transform duration-500"
-                            />
-                        </motion.div>
-
-                        {/* Bottom Right: Two Stacked Images */}
-                        <div className="flex flex-col gap-2 h-full">
-                            <motion.div
-                                className="relative w-full h-full overflow-hidden bg-gray-200"
-                                initial={{ opacity: 0, scale: 0.95 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ duration: 0.5, delay: 0.3 }}
-                            >
-                                <Image
-                                    src="/img/hero/04.png"
-                                    alt="Office Room"
-                                    fill
-                                    className="object-cover hover:scale-105 transition-transform duration-500"
-                                />
-                            </motion.div>
-                            <motion.div
-                                className="relative w-full h-full overflow-hidden bg-gray-200"
-                                initial={{ opacity: 0, scale: 0.95 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ duration: 0.5, delay: 0.4 }}
-                            >
-                                <Image
-                                    src="/img/hero/03.png"
-                                    alt="Glass Cabins"
-                                    fill
-                                    className="object-cover hover:scale-105 transition-transform duration-500"
-                                />
-                            </motion.div>
-                        </div>
-                    </div>
 
                     {/* Bottom Stats Row */}
                     <motion.div
