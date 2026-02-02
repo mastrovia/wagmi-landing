@@ -91,14 +91,14 @@ const Hero = () => {
 
                     {/* Bottom Stats Row */}
                     <motion.div
-                        className="grid grid-cols-3 gap-4 md:gap-6 mt-2"
+                        className="grid grid-cols-2 gap-4 md:gap-6 mt-2"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.4, delay: 0.35 }}
                     >
                         <StatsCard value="12+" label="Companies" />
                         <StatsCard value="5+" label="Spaces Available" />
-                        <StatsCard value="120+" label="Satisfied Clients" />
+                        {/* <StatsCard value="120+" label="Satisfied Clients" /> */}
                     </motion.div>
                 </div>
             </div>
