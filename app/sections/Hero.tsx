@@ -63,8 +63,8 @@ const Hero = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.4, delay: 0.2 }}
                     >
-                        At Wagmi, we provide a modern co-working space for freelancers, startups,
-                        and remote teams to work, collaborate, and grow.
+                        Wagmi - Modern coworking space offering flexible office space solution for
+                        professionals, startups and teams
                     </motion.p>
 
                     <motion.div
@@ -96,7 +96,7 @@ const Hero = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.4, delay: 0.35 }}
                     >
-                        <StatsCard value="12+" label="Companies" />
+                        <StatsCard value="50+" label="Active Companies" />
                         <StatsCard value="5+" label="Spaces Available" />
                         {/* <StatsCard value="120+" label="Satisfied Clients" /> */}
                     </motion.div>

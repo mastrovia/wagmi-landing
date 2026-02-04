@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence, PanInfo } from 'framer-motion';
 
-const images = ['/img/hero/01.jpg', '/img/hero/02.jpg', '/img/hero/03.png', '/img/hero/04.png'];
+const images = ['/img/hero/01.jpg', '/img/hero/02.jpg', '/img/hero/03.png', '/img/hero/04.png', '/img/hero/05.png','/img/hero/06.png'];
 
 const HeroCarousel = () => {
     const [index, setIndex] = useState(0);
