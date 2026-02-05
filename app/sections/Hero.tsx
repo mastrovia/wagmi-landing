@@ -12,7 +12,7 @@ const Hero = () => {
     return (
         <section
             id="home"
-            className="hidden md:block max-w-[1440px] mx-auto px-6 lg:px-16 w-full pt-4 pb-12 md:pb-20 overflow-hidden"
+            className="block max-w-[1440px] mx-auto px-6 lg:px-16 w-full pt-4 pb-12 md:pb-20 overflow-hidden"
         >
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-start">
                 {/* Left Column */}

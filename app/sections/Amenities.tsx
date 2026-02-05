@@ -17,41 +17,41 @@ const amenities: Amenity[] = [
         title: 'High Speed Internet',
         description:
             'Fast, reliable connectivity built for video calls, cloud work, and uninterrupted productivity.',
-        image: '/img/amenities/01.png',
+        image: '/img/amenity/01.png',
     },
     {
         id: 2,
         title: 'Printing Services',
         description:
             'Convenient access to essential printing and scanning services to support your everyday work needs.',
-        image: '/img/amenities/02.png',
+        image: '/img/amenity/02.png',
     },
     {
         id: 3,
         title: 'Power Backup',
         description:
             'Uninterrupted power supply to ensure continuous productivity throughout the workday.',
-        image: '/img/amenities/03.png',
+        image: '/img/amenity/03.png',
     },
     {
         id: 4,
         title: 'Secure Parking',
         description:
             'Safe, monitored parking facilities to ensure peace of mind throughout your workday.',
-        image: '/img/amenities/04.png',
+        image: '/img/amenity/04.png',
     },
     {
         id: 5,
         title: 'Refreshments',
         description: 'Light refreshments available to keep you energized.',
-        image: '/img/amenities/05.png',
+        image: '/img/amenity/05.png',
     },
     {
         id: 6,
         title: 'Security Facilities',
         description:
             'Comprehensive security measures in place to ensure a safe and secure working environment.',
-        image: '/img/amenities/06.png',
+        image: '/img/amenity/06.png',
     },
 ];
 

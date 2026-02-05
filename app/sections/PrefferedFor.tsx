@@ -31,37 +31,14 @@ const PrefferedFor = () => {
                     viewport={{ once: true, margin: '-100px' }}
                     transition={{ duration: 0.5, delay: 0.1 }}
                 >
-                    {/* Left Column: Image Grid */}
-                    <div className="grid grid-cols-2 gap-4 h-[500px] md:h-[600px]">
-                        {/* Column 1: Stacked Images */}
-                        <div className="flex flex-col gap-4 h-full">
-                            <div className="relative flex-1 overflow-hidden">
-                                <Image
-                                    src="/img/prefferedFor/01.png"
-                                    alt="Freelancer working"
-                                    fill
-                                    className="object-cover hover:scale-105 transition-transform duration-500"
-                                />
-                            </div>
-                            <div className="relative flex-1 overflow-hidden">
-                                <Image
-                                    src="/img/prefferedFor/02.jpg"
-                                    alt="Team meeting"
-                                    fill
-                                    className="object-cover hover:scale-105 transition-transform duration-500"
-                                />
-                            </div>
-                        </div>
-
-                        {/* Column 2: Tall Image */}
-                        <div className="relative h-full overflow-hidden">
-                            <Image
-                                src="/img/prefferedFor/03.png"
-                                alt="Collaboration"
-                                fill
-                                className="object-cover hover:scale-105 transition-transform duration-500"
-                            />
-                        </div>
+                    {/* Left Column: Single Square Image */}
+                    <div className="relative aspect-square w-full max-w-[600px] overflow-hidden rounded-2xl">
+                        <Image
+                            src="/img/prefferedFor/wagmi.png"
+                            alt="Wagmi Workspace"
+                            fill
+                            className="object-cover hover:scale-105 transition-transform duration-500"
+                        />
                     </div>
 
                     {/* Right Column: Cards List */}

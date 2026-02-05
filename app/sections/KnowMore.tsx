@@ -8,7 +8,7 @@ const features = [
     {
         icon: MdLocationOn,
         title: 'Prime Location:',
-        description: `Located in Unichira, Edapally, WAGMI offers unmatched convenience with easy access to Kochi's bustling areas like Thrikkakara, Kakkanad, and Edapally. You'll enjoy proximity to major transportation, dining, and entertainment, always staying connected to everything you need.`,
+        description: `Find your workspace at WAGMI, located in Unichira, Edapally—one of Kochi's most connected areas. We're near Infopark Kakkanad, Thrikkakara, and the Edapally Metro. Our space brings together freelancers, startups, and remote teams from across Ernakulam under one roof.`,
     },
     {
         icon: MdLightbulb,
